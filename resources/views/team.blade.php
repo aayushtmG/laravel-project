@@ -5,40 +5,24 @@
         <h1 class="text-xl font-bold text-gray-800 mb-8">Management Committee</h1>
 
         <!-- Central Head -->
-        <div class="flex justify-center mb-12">
-            <div class="bg-blue-50 rounded-lg p-6 shadow-md text-center">
-                <img src="/path-to-image.jpg" alt="Profile" class="w-24 h-24 rounded-full mx-auto mb-4">
-                <h2 class="text-lg font-bold text-gray-800">Mahendra Kumar Giri</h2>
-                <p class="text-sm text-gray-600">Chief Executive</p>
-                <a href="mailto:ceo@saharanepal.coop.np" class="text-blue-500 text-sm">ceo@saharanepal.coop.np</a>
+        <div class="flex justify-center mb-12 gap-4">
+            <div class="hover:bg-blue-50 rounded-lg p-6 shadow-md text-center ">
+                <img src="{{$members[0]['image']}}" alt="Profile" class="w-24 h-24 rounded-full mx-auto mb-4">
+                <h2 class="text-lg font-bold text-gray-800">{{$members[0]['name']}}</h2>
+                <p class="text-sm text-gray-600">{{$members[0]['position']}}</p>
+                <a href="mailto:{{$members[0]['email']}}" class="text-blue-500 text-sm">{{$members[0]['email']}}</a>
             </div>
         </div>
-
-        <!-- Other Members -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <!-- Member 1 -->
-            <div class="bg-white rounded-lg p-6 shadow-md text-center">
-                <img src="/path-to-image.jpg" alt="Profile" class="w-20 h-20 rounded-full mx-auto mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Laxman Khatiwada</h3>
-                <p class="text-sm text-gray-600">Director</p>
-                <a href="mailto:director@saharanepal.coop.np" class="text-blue-500 text-sm">director@saharanepal.coop.np</a>
-            </div>
-
-            <!-- Member 2 -->
-            <div class="bg-white rounded-lg p-6 shadow-md text-center">
-                <img src="/path-to-image.jpg" alt="Profile" class="w-20 h-20 rounded-full mx-auto mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Dinesh Bahadur Niraula</h3>
-                <p class="text-sm text-gray-600">Deputy Director</p>
-                <a href="mailto:admin@saharanepal.coop.np" class="text-blue-500 text-sm">admin@saharanepal.coop.np</a>
-            </div>
-
-            <!-- Member 3 -->
-            <div class="bg-white rounded-lg p-6 shadow-md text-center">
-                <img src="/path-to-image.jpg" alt="Profile" class="w-20 h-20 rounded-full mx-auto mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Ishwor Prasad Bhattarai</h3>
-                <p class="text-sm text-gray-600">Assistant Director</p>
-                <a href="mailto:audit@saharanepal.coop.np" class="text-blue-500 text-sm">audit@saharanepal.coop.np</a>
-            </div>
+        <div class="flex justify-center gap-4">
+           @foreach ($members->skip(1) as $member)
+                <div class="hover:bg-blue-50 rounded-lg p-6 shadow-md text-center">
+                    <img src="{{$member['image']}}" alt="Profile" class="w-24 h-24 rounded-full mx-auto mb-4">
+                    <h2 class="text-lg font-bold text-gray-800">{{$member['name']}}</h2>
+                    <p class="text-sm text-gray-600">{{$member['position']}}</p>
+                    <a href="mailto:{{$member['email']}}" class="text-blue-500 text-sm">{{$member['email']}}</a>
+                </div>
+            @endforeach
+        </div>
         </div>
     </div>
 @endsection
