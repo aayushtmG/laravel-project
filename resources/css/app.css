@@ -1,0 +1,142 @@
+@import '@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '@fortawesome/fontawesome-free/css/regular.css';
+@import '@fortawesome/fontawesome-free/css/solid.css';
+@import '@fortawesome/fontawesome-free/css/brands.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.top-nav ul li a{
+  font-size: 1rem;
+  color:white;
+  font-weight: 500;
+}
+.section-header{
+  position: relative;
+  font-weight: 600;
+  margin:1rem 0;
+}
+
+section{
+  padding: 0 1rem;
+  margin: 4rem auto;
+}
+
+.nav-links a:hover {
+  background-color: rgba(3, 219, 3, 0.58);
+  transition: background 0.3s ease-out;
+} 
+
+.nav-dropdown-list{
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.nav-dropdown-list  a:hover{
+  background-color: transparent !important;
+  color:green;
+}
+.nav-dropdown-list  a{
+  border-bottom: 2px rgba(128, 128, 128, 0.493) solid;
+}
+
+.closed{
+  height: 0px;
+}
+.nav-links-item{
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+.section-header::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color:green;
+  height:2px;
+  width:100px;
+}
+
+.organization-header{
+  margin:20px 0;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+}
+.organization-header::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;
+  left:50%;
+  transform: translateX(-50%) ;
+  background-color: white;
+  height:1px;
+  width:100px;
+}
+
+footer{
+  display: flex;
+  color:white;
+  margin-top: 1.2rem;
+  flex-direction: column;
+  background-color: rgb(3, 3, 32);
+}
+.footer-list-container{
+  margin: 1rem 0;
+  display: flex;
+ flex-direction: column; 
+}
+.footer-list li{
+  display: flex;
+  align-items: center;
+} 
+.footer-list i{
+  margin-right: 0.5rem;
+}
+.footer-header{
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: relative;
+  margin: 0.6rem 0;
+}
+.footer-header::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color:#9acd32;
+  height:2px;
+  width:50px;
+}
+.skewed-border{
+  clip-path: polygon(0 1%,100% 0,75% 100%,0 100%);
+}
+
+.services-group h3{
+ position:relative ;
+}
+.services-group h3::after{
+content: '';
+position: absolute;
+bottom: 0;
+left:0;
+width: 0;
+height: 2px;
+transition: width 0.5s ease-out;
+background-color: white;
+}
+.services-group:hover h3:after{
+  width: 80%;
+}
+.footer-list-container{
+  width:70%;
+}
+.footer-list a{
+  font-size: 1rem;
+}
+.container{
+  max-width: 1320px !important;
+}
