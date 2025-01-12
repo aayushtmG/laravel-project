@@ -1,46 +1,43 @@
-<nav class="bg-blue-500 text-white " x-data="{ isOpen: true }">
-    <div class="  pl-4  mx-auto">
-                    {{-- desktop navigation --}}
+<nav class="bg-blue-500 text-white " >
+    <div class="  pl-4  mx-auto"> 
+                    {{-- desktop navigation--}}
                     <div>
                         <div class="flex justify-between items-center max-sm:h-16 py-4">
-                            <!-- Hamburger Menu Button -->
-                            <div class="block md:hidden">
-                                <button 
-                                    @click="isOpen = !isOpen" 
-                                    class="focus:outline-none" 
-                                    aria-label="Toggle navigation"
-                                >
-                                    <span class="border p-2 px-4 rounded-md"><i class="fa-solid fa-bars"></i></span>
-                                </button>
-                            </div>
+            <!-- Hamburger Button -->
+            <div class="block md:hidden">
+                <button 
+                    id="hamburger-button"
+                    class="focus:outline-none"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="border p-2 px-4 rounded-md"><i class="fa-solid fa-bars"></i></span>
+                </button>
+            </div>
                             <!-- Links -->
                             <div class="">
                                 <ul class="hidden md:flex md:items-center nav-links">
                                 <li><a href="/" class="px-3 py-2 rounded  nav-links-item" >Home</a></li>
                                <li> <a href="/about" class="px-3 py-2 rounded nav-links-item">About Us</a></li>
-                               <li>
-        <div class="relative inline-block text-left">
-            <button id="dropdown-button" class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium nav-links-item">
-                Services
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 " viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-            </button>
-            <div id="dropdown-menu" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-30">
-                <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
-                    <a class="flex rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer z-32" role="menuitem">
-                        Service 1
-                      </a>
-                    <a class="flex  rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer" role="menuitem">
-                        Service 2
-                      </a>
-                    <a class="flex rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer" role="menuitem">
-                        Service 3
-                      </a>
-                </div>
-            </div>
-        </div>
-                                </li>
+                    <li class="relative">
+                        <button 
+                            id="desktop-dropdown-button"
+                            class="px-3 py-2 rounded nav-links-item inline-flex items-center hover:text-[#00ff00]"
+                        >
+                            Services
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <ul 
+                            id="desktop-dropdown-menu" 
+                            class="absolute left-0 mt-2 w-52 bg-white text-black rounded-md shadow-lg overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out z-30 nav-dropdown-list px-2 "
+                        >
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">ABBS Service</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">Debit Card</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">Free Mobile Banking Service</a></li>
+                            <li><a href="#" class="block px-4 py-2 mb-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600 ">SMS Service</a></li>
+                        </ul>
+                    </li>
                                <li> <a href="/team" class="px-3 py-2 rounded nav-links-item">Team</a></li>
                                <li> <a href="/messages" class="px-3 py-2 rounded nav-links-item">Messages</a></li>
                                <li> <a href="/contact" class="px-3 py-2 rounded nav-links-item">Contact Us</a></li>
@@ -55,106 +52,82 @@
         </marquee>
     </div>                        
 @endif 
-                    </div>
-                    <!-- Mobile Menu Navigation -->
-                    <div 
-                        x-ref="content" 
-                        {{-- x-bind:style="isOpen ? `max-height: ${$refs.content.scrollHeight}px` : 'max-height: 0px'"  --}}
-                        x-bind:style="isOpen ? `max-height: min-content` : 'max-height: 0px'" 
-                        class="transition-all duration-500 ease-in-out overflow-hidden"
-                    >
-                    <div class="px-4 pb-2 ">
-                                <ul class="md:hidden  nav-links flex flex-col justify-start items-start">
-                                <li><a href="#" class="block px-3 py-2 rounded nav-links-item ">Home</a></li>
-                                <li> <a href="/about" class="block px-3 py-2 rounded nav-links-item ">About Us</a></li>
-                                <li>
-                {{-- <div >
-                <button 
-                    onclick="toggleDropdown()" 
-                    class="flex items-center w-full px-3 py-2 rounded nav-links-item">
-                    <span class="block">Services </span><i class="fa fa-sort-down mb-1 ml-1"></i>
-                </button>
-                <ul  id="servicesDropdown-mobile" class=" flex flex-col gap-2  ml-4 nav-dropdown-list h-24 closed">
-                    <li><a href="/service1" class="block px-3  rounded nav-links-item">Service 1</a></li>
-                    <li><a href="/service2" class="block px-3 rounded nav-links-item">Service 2</a></li>
-                    <li><a href="/service3" class="block px-3 rounded nav-links-item">Service 3</a></li>
-                </ul>
-
-            </div> --}}
-
-        <div class="relative inline-block text-left">
-            <button id="dropdown-button" class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
-                Theme
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-            </button>
-            <div id="dropdown-menu" class=" absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-30">
-                <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
-                    <a class="flex rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer z-32" role="menuitem">
-                        Service 1
-                      </a>
-                    <a class="flex  rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer" role="menuitem">
-                        Service 2
-                      </a>
-                    <a class="flex rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer" role="menuitem">
-                        Service 3
-                      </a>
-                </div>
             </div>
-        </div>
-                                </li>
-                                <li> <a href="/team" class="block px-3 py-2 rounded nav-links-item">Team</a></li>
-                                <li> <a href="/messages" class="block px-3 py-2 rounded nav-links-item">Messages</a></li>
-                                <li> <a href="/contact" class="block px-3 py-2 rounded nav-links-item">Contact Us</a></li>
-                                <li> <a href="/notices" class="block px-3 py-2 rounded nav-links-item">Notices</a></li>
-                                </ul>
+        <!-- mobile navigation -->
+        <div 
+            id="mobile-menu" 
+            class="overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out md:hidden"
+        >
+            <ul class="flex flex-col">
+                <li><a href="/" class="block px-4 py-2 nav-links-item">Home</a></li>
+                <li><a href="/about" class="block px-4 py-2 nav-links-item">About Us</a></li>
+                <li>
+                    <div class="relative">
+                        <button 
+                            id="mobile-dropdown-button"
+                            class="flex w-full px-4 py-2 text-left nav-links-item"
+                        >
+                            Services
+                        </button>
+                        <ul 
+                            id="mobile-dropdown-menu"
+                            class="overflow-hidden w-4/5 ml-4 max-h-0 transition-[max-height] duration-500 ease-in-out nav-dropdown-list"
+                        >
+
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">ABBS Service</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">Debit Card</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">Free Mobile Banking Service</a></li>
+                            <li><a href="#" class="block px-4 py-2 mb-2 hover:bg-gray-100 border-gray-300 border-b text-base ">SMS Service</a></li>
+                        </ul>
                     </div>
-                </div>
+                </li>
+                <li><a href="/contact" class="block px-4 py-2 nav-links-item">Contact Us</a></li>
+            </ul>
+        </div>
     </div>
  </nav>
-{{--<script>
-    function toggledropdown() {
-        if(window.innerwidth > 768){
-        const dropdown = document.getelementbyid('servicesdropdown');
-        dropdown.classlist.toggle('closed'); // change from `hidden` to `flex` for visibility
-        }else{
-        const dropdown = document.getelementbyid('servicesdropdown-mobile');
-        dropdown.classlist.toggle('closed'); // change from `hidden` to `flex` for visibility
-        }
-    }
-</script> --}}
 
-   <script>
-        let isDropdownOpen = false; // Set to true to open the dropdown by default, false to close it by default
-        const dropdownButton = document.getElementById('dropdown-button-mobile');
-        const dropdownMenu = document.getElementById('dropdown-menu-mobile');
-        if(window.innerwidth > 768){
-             dropdownButton = document.getElementById('dropdown-button');
-             dropdownMenu = document.getElementById('dropdown-menu');
-        }
+<script>
+    // hamburger menu toggle
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        // Function to toggle the dropdown
-        function toggleDropdown() {
-            isDropdownOpen = !isDropdownOpen;
-            if (isDropdownOpen) {
-                dropdownMenu.classList.remove('hidden');
-            } else {
-                dropdownMenu.classList.add('hidden');
-            }
-        }
+    hamburgerButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('max-h-0')
+        mobileMenu.classList.toggle('max-h-screen')
+    });
 
-        // Initialize the dropdown state
-        toggleDropdown();
+    // Mobile Dropdown Toggle
+    const mobileDropdownButton = document.getElementById('mobile-dropdown-button');
+    const mobileDropdownMenu = document.getElementById('mobile-dropdown-menu');
 
-        // Toggle the dropdown when the button is clicked
-        dropdownButton.addEventListener('click', toggleDropdown);
+    mobileDropdownButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileDropdownMenu.classList.toggle('max-h-0');
+        mobileDropdownMenu.classList.toggle('max-h-48');
+    });
 
-        // Close the dropdown when clicking outside of it
-        window.addEventListener('click', (event) => {
-            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.add('hidden');
-                isDropdownOpen = false;
-            }
-        });
-    </script>
+    // Desktop Dropdown Toggle
+    const desktopDropdownButton = document.getElementById('desktop-dropdown-button');
+    const desktopDropdownMenu = document.getElementById('desktop-dropdown-menu');
+
+    desktopDropdownButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        desktopDropdownMenu.classList.toggle('max-h-0');
+        desktopDropdownMenu.classList.toggle('max-h-56');
+    });
+
+    // Close menus if clicking outside
+    document.addEventListener('click', () => {
+        mobileDropdownMenu.classList.add('max-h-0');
+        mobileDropdownMenu.classList.remove('max-h-48');
+
+        desktopDropdownMenu.classList.add('max-h-0');
+        desktopDropdownMenu.classList.remove('max-h-52');
+    });
+
+    // Prevent closing menus if clicking inside
+    document.querySelectorAll('#mobile-menu, #desktop-dropdown-menu').forEach((menu) => {
+        menu.addEventListener('click', (e) => e.stopPropagation());
+    });
+</script>

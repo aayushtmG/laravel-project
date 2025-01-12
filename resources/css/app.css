@@ -24,26 +24,16 @@ section{
 }
 
 .nav-links a:hover {
-  background-color: rgba(3, 219, 3, 0.58);
-  transition: background 0.3s ease-out;
+  color:#00ff00;
+  transition: color 0.3s ease-out;
 } 
 
-.nav-dropdown-list{
-  overflow: hidden;
-  transition: all 0.3s ease-out;
-}
 
 .nav-dropdown-list  a:hover{
   background-color: transparent !important;
   color:green;
 }
-.nav-dropdown-list  a{
-  border-bottom: 2px rgba(128, 128, 128, 0.493) solid;
-}
 
-.closed{
-  height: 0px;
-}
 .nav-links-item{
   font-size: 1rem;
   font-weight: 500;
