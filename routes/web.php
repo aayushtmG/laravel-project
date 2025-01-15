@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
 use App\Http\Middleware\LanguageMiddleware;
 use App\Http\Controllers\HomeController; 
+use App\Http\Controllers\ServiceController; 
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
@@ -106,5 +107,10 @@ Route::get('/about',function(){
     return view('about');
 });
 
+
 Route::get('/language-switch',[LanguageController::class,'languageSwitch'])->name('language.switch');
 
+
+Route::get('/services',[ServiceController::class,'index'])->name('services');
+Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
+Route::post('/service/create-service',[ServiceController::class,'createService']);
