@@ -32,10 +32,9 @@
                             id="desktop-dropdown-menu" 
                             class="absolute left-0 mt-2 w-52 bg-white text-black rounded-md shadow-lg overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out z-30 nav-dropdown-list px-2 "
                         >
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">ABBS Service</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">Debit Card</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">Free Mobile Banking Service</a></li>
-                            <li><a href="#" class="block px-4 py-2 mb-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600 ">SMS Service</a></li>
+                        @foreach($services as $service)
+                            <li><a href="{{$service['link']}}" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">{{$service['service_name']}}</a></li>
+                        @endforeach
                         </ul>
                     </li>
                                <li> <a href="/team" class="px-3 py-2 rounded nav-links-item">Team</a></li>
@@ -73,11 +72,9 @@
                             id="mobile-dropdown-menu"
                             class="overflow-hidden w-4/5 ml-4 max-h-0 transition-[max-height] duration-500 ease-in-out nav-dropdown-list"
                         >
-
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">ABBS Service</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">Debit Card</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">Free Mobile Banking Service</a></li>
-                            <li><a href="#" class="block px-4 py-2 mb-2 hover:bg-gray-100 border-gray-300 border-b text-base ">SMS Service</a></li>
+                            @foreach($services as $service)
+                            <li><a href="{{$service['link']}}" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">{{$service['service_name']}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </li>
@@ -104,7 +101,7 @@
     mobileDropdownButton.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileDropdownMenu.classList.toggle('max-h-0');
-        mobileDropdownMenu.classList.toggle('max-h-48');
+        mobileDropdownMenu.classList.toggle('max-h-[350px]');
     });
 
     // Desktop Dropdown Toggle
@@ -114,16 +111,16 @@
     desktopDropdownButton.addEventListener('click', (e) => {
         e.stopPropagation();
         desktopDropdownMenu.classList.toggle('max-h-0');
-        desktopDropdownMenu.classList.toggle('max-h-56');
+        desktopDropdownMenu.classList.toggle('max-h-[350px]');
     });
 
     // Close menus if clicking outside
     document.addEventListener('click', () => {
         mobileDropdownMenu.classList.add('max-h-0');
-        mobileDropdownMenu.classList.remove('max-h-48');
+        mobileDropdownMenu.classList.remove('max-h-[350px]');
 
         desktopDropdownMenu.classList.add('max-h-0');
-        desktopDropdownMenu.classList.remove('max-h-52');
+        desktopDropdownMenu.classList.remove('max-h-[350px]');
     });
 
     // Prevent closing menus if clicking inside

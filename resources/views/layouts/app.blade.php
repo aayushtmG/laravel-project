@@ -49,7 +49,8 @@
         </div>
       </div>
     </div>
-    @include('components.navbar')
+    {{-- @include('components.navbar') --}}
+    <x-navbar />
     </header>
     @yield('content')
     </body>
