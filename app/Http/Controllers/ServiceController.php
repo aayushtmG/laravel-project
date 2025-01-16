@@ -28,7 +28,6 @@ class ServiceController extends Controller
             $filename = time().'.'.$extension;
             $file->move(public_path('/images/uploads'),$filename);
             Service::create([
-                'id'=>random_int(1,500),
             'name'=>$request->input('name'),
             'description'=>$request->input('description'),
             'image'=> $filename ?? null

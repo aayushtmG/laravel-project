@@ -11,6 +11,7 @@ class Notices extends Component
     public $notices;
     public function __construct()
     {
+        //todo: make this dynamic
         $this->notices = collect([
                     ['title' => 'First Notice Item',
                     'created_at' => now()->subDays(1),

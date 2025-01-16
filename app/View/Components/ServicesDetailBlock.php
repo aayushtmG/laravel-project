@@ -11,6 +11,7 @@ class ServicesDetailBlock extends Component
     public $services;
    public function __construct()
     {
+        //todo: make this dynamic
         $this->services = collect([
             [
                 'icon' => '/images/icons/provider.png',

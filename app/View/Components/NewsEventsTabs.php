@@ -13,6 +13,7 @@ class NewsEventsTabs extends Component
 
     public function __construct()
     {
+        //todo: make this dynamic
             $this->news = collect([
                 [
                     'title' => 'First News Item',

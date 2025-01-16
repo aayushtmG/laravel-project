@@ -8,9 +8,12 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Middleware\LanguageMiddleware;
 use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\ServiceController; 
+use App\Http\Controllers\NoticeController; 
 
 
-Route::get('/', [HomeController::class,'index'])->name('home');
+// Route::get('/', [HomeController::class,'index'])->name('home');
+Route::get('/', [NoticeController::class,'index']);
+
 Route::get('/team',function(){
     //fetch from database
     $members=collect([

@@ -12,7 +12,7 @@
             <p class="text-gray-700 mb-6">{{ $service->description }}</p>
         </div>
 
-        <div class="shadow-md min-h-[300px] h-max p-8 rounded-md">
+        <div class="shadow-md min-h-[300px] max-w-[300px] h-max p-8 px-12 rounded-md">
             <!-- Related Services -->
             <h2 class="text-xl font-semibold mb-2 tracking-wide text-black/70">Related Services</h2>
             <ul class="space-y-2 list-disc marker:text-blue-500">
