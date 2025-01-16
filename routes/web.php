@@ -11,8 +11,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\NoticeController; 
 
 
-// Route::get('/', [HomeController::class,'index'])->name('home');
-Route::get('/', [NoticeController::class,'index']);
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('/team',function(){
     //fetch from database

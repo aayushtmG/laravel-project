@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Notice;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view('home');
+        //notices for modal
+        $notices = Notice::all();
+        return view('home',compact('notices'));
     }
 }

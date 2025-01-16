@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Notice;
 
 class Notices extends Component
 {
@@ -12,19 +13,8 @@ class Notices extends Component
     public function __construct()
     {
         //todo: make this dynamic
-        $this->notices = collect([
-                    ['title' => 'First Notice Item',
-                    'created_at' => now()->subDays(1),
-                    'content' => 'Some news content here'
-                    ]
-                    ,
-            [
-                    'title' => 'Second Notice Item',
-                    'created_at' => now()->subDays(2),
-                    'content' => 'Some news content here'
-        ],
-        ]);
-    }
+        $this->notices = Notice::all();
+        }
     public function render(): View|Closure|string
     {
         return view('components.notices');

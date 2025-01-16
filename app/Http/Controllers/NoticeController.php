@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\Notice;
 
 class NoticeController extends Controller
 {
     public function index(){
-        $notices = Notice::all();
-        return view('notice',compatct('notices'));
+        return view('notice',compact('notices'));
     }
 }

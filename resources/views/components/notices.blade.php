@@ -2,7 +2,7 @@
     @foreach ($notices as $item)
     <a href="/">
         <div class="shadow-md p-2 border hover:bg-black/10 rounded-lg cursor-pointer flex flex-col">
-            <h3 class="text-gray-800 text-lg ">{{$item['title']}}</h3>
+            <h3 class="text-gray-800 text-lg ">{{$item['name']}}</h3>
             <span class="text-sm text-gray-600">{{$item['created_at']}}</span>
         </div>
     </a>
