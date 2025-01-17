@@ -9,6 +9,7 @@ use App\Http\Middleware\LanguageMiddleware;
 use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\ServiceController; 
 use App\Http\Controllers\NoticeController; 
+use App\Http\Controllers\AdminPageController; 
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
@@ -116,3 +117,12 @@ Route::get('/language-switch',[LanguageController::class,'languageSwitch'])->nam
 Route::get('/services',[ServiceController::class,'index'])->name('services');
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
 Route::post('/service/create-service',[ServiceController::class,'createService']);
+
+
+
+//admin dashboard
+Route::get('/admin',function(){
+    return view('admin.home');
+})->name('admin.index');
+
+Route::get('/admin/pages/{pageName}',[AdminPageController::class,'show']);
