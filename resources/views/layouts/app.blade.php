@@ -32,7 +32,7 @@
           <li><a href="/">Our Location</a></li>
           <li><a href="/">Download Forms</a></li>
           <li><a href="/">Careers</a></li>
-          <li><a href="/">Login</a></li>
+          <li><a href="/admin">Login</a></li>
         </ul>
       </div>
   </div>

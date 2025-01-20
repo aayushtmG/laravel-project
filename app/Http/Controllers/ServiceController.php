@@ -21,18 +21,38 @@ class ServiceController extends Controller
         return view('services.show',compact('service','relatedServices'));
     }
 
-    public function createService(Request $request){
+    public function postCreateService(Request $request){
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+
+        if(!$validated){
+            return null;
+        }
+
+
         if($request->hasFile('image')){
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = time().'.'.$extension;
             $file->move(public_path('/images/uploads'),$filename);
             Service::create([
-            'name'=>$request->input('name'),
+            'title'=>$request->input('title'),
             'description'=>$request->input('description'),
             'image'=> $filename ?? null
             ]);
         }
-        return redirect()->route('services');
+        return redirect()->route('admin.services.show');
+    }
+    public function getCreateService(){
+        return view('admin.services.create');
+    }
+    public function updateService(Request $request){
+    }
+    public function adminShow(){
+        $services = Service::all();
+        return view('admin.services.show',compact('services'));
     }
 }

@@ -33,7 +33,7 @@
                             class="absolute left-0 mt-2 w-52 bg-white text-black rounded-md shadow-lg overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out z-30 nav-dropdown-list px-2 "
                         >
                         @foreach($services as $service)
-                            <li><a href={{route('services.show',$service->id)}} class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">{{$service['name']}}</a></li>
+                            <li><a href={{route('services.show',$service->id)}} class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base text-gray-600">{{$service['title']}}</a></li>
                         @endforeach
                         </ul>
                     </li>

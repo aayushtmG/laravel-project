@@ -10,72 +10,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController; 
 use App\Http\Controllers\NoticeController; 
 use App\Http\Controllers\AdminPageController; 
+use App\Http\Controllers\Auth\RegisterController; 
+use App\Http\Controllers\MemberController; 
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
-Route::get('/team',function(){
-    //fetch from database
-    $members=collect([
-        [
-            'name'=> 'Mahendra Kumar Giri',
-            'position'=> 'Chief Executive',
-            'email'=>'ceo@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-5.jpg',
-        ],
-        [
-            'name'=> 'Laxman Khatiwada',
-            'position'=> 'Director',
-            'email'=>'director@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-1.jpg',
-        ],
-        [
-            'name'=> 'Dinesh Bahadur Niraula',
-            'position'=> 'Deputy Director',
-            'email'=>'admin@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-2.jpg',
-        ],
-        [
-            'name'=> 'Ishwor Prasad Bhattarai',
-            'position'=> 'Assistant Director',
-            'email'=>'audit@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-3.jpg',
-        ],
-        [
-            'name'=> 'Nirmala Bhattarai',
-            'position'=> 'Assistant Director',
-            'email'=>'audit@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-4.jpg',
-        ]
-        ]);
-    $board=collect([
-        [
-            'name'=> 'Laxman Khatiwada',
-            'position'=> 'Director',
-            'email'=>'director@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-1.jpg',
-        ],
-        [
-            'name'=> 'Dinesh Bahadur Niraula',
-            'position'=> 'Deputy Director',
-            'email'=>'admin@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-2.jpg',
-        ],
-        [
-            'name'=> 'Ishwor Prasad Bhattarai',
-            'position'=> 'Assistant Director',
-            'email'=>'audit@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-3.jpg',
-        ],
-        [
-            'name'=> 'Nirmala Bhattarai',
-            'position'=> 'Assistant Director',
-            'email'=>'audit@saharanepal.ccop.np',
-            'image'=>'/images/members/profile-4.jpg',
-        ]
-        ]);
-    return view('team',compact('members','board'));
-});
+Route::get('/team',[MemberController::class,'show'])->name('team');
 Route::get('/messages',function(){
     $messages = collect([
         [
@@ -114,15 +55,24 @@ Route::get('/about',function(){
 Route::get('/language-switch',[LanguageController::class,'languageSwitch'])->name('language.switch');
 
 
-Route::get('/services',[ServiceController::class,'index'])->name('services');
+//SERVICE 
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
-Route::post('/service/create-service',[ServiceController::class,'createService']);
 
 
-
+//ADMIN SECTION
 //admin dashboard
-Route::get('/admin',function(){
-    return view('admin.home');
-})->name('admin.index');
+Route::get('/admin',[AdminPageController::class,'index'])->name('admin.index');
 
-Route::get('/admin/pages/{pageName}',[AdminPageController::class,'show']);
+//Authentication
+Route::get('/register',[RegisterController::class,'create']);
+Route::post('/register',[RegisterController::class,'store'])->name('register.store');
+
+//Services
+Route::get('/admin/services',[ServiceController::class,'adminShow'])->name('admin.services.show');
+Route::get('/admin/services/create',[ServiceController::class,'getCreateService'])->name('admin.services.get.create');
+Route::post('/admin/services/create',[ServiceController::class,'postCreateService'])->name('services.create');
+
+//Members
+Route::get('/admin/members',[MemberController::class,'adminShow'])->name('admin.members.show');
+Route::get('/admin/members/create',[MemberController::class,'getAddMember'])->name('admin.members.get.create');
+Route::post('/admin/members/create',[MemberController::class,'postAddMember'])->name('members.create');
