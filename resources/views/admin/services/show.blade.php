@@ -28,14 +28,15 @@
                   >
                   @foreach ($services as $service)
                     <tr class="text-gray-700">
-                      <td class="px-4 py-3">
+                      <td class="px-4 py-3 font-semibold">
                         {{$service->title}}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        //
+                        <img src="/images/services/{{$service->image}}"
+                        class="max-w-[150px]"/>
                       </td>
                       <td class="px-4 py-3 text-xs ">
-                        <p class="">
+                        <p class="text-sm">
                         {{substr($service->description,0,25).'...'}}
                         </p>
                       </td>
@@ -59,9 +60,13 @@
                               ></path>
                             </svg>
                           </button>
+                          <form action="{{route('services.delete')}}" method="POST">
+                            @csrf
+                          <input type="hidden" value="{{$service->id}}" name="id">
                           <button
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Delete"
+                            type="submit"
                           >
                             <svg
                               class="w-5 h-5"
@@ -76,6 +81,7 @@
                               ></path>
                             </svg>
                           </button>
+                          </form>
                         </div>
                       </td>
                     </tr>

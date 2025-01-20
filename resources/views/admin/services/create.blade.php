@@ -16,13 +16,14 @@
       {{-- title --}}
       <div class="flex flex-col">
       <label for="service_title">Service Title:</label> 
-      <input type="text" id="service_title" name="title" class="border border-slate-300 rounded-sm p-1">
+      <input type="text" id="service_title" name="title" class="border border-slate-300 rounded-sm p-2" placeholder="Enter Service Title">
       </div>
       {{-- description --}}
       <div class="flex flex-col">
-      <label for="service_description">Service Description:</label> 
-       <textarea type="text" id="service_description" name="description" class="border border-slate-300 rounded-sm p-1 min-h-[200px]" > 
-      </textarea> 
+        <label for="service_description">Service Description:</label> 
+        <textarea id="service_description" name="description" class="border border-slate-300 rounded-sm min-h-[200px] p-3"
+        placeholder="Enter the service description here...."
+        ></textarea> 
       </div>
     <button type="submit" class="btn w-max bg-slate-800 text-white hover:bg-slate-800/90">Submit</button>
     </div> 

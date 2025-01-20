@@ -104,4 +104,9 @@ class MemberController extends Controller
         }
         return redirect()->route('admin.members.show');
     }
+    public function deleteMember(Request $request){
+        $id = $request->id; 
+        Member::where('id',$id)->delete();
+        return redirect()->route('admin.members.show');
+    }
 }

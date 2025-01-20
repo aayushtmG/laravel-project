@@ -32,12 +32,11 @@ class ServiceController extends Controller
             return null;
         }
 
-
         if($request->hasFile('image')){
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move(public_path('/images/uploads'),$filename);
+            $filename = str_replace(' ','_',$request->title).'.'.$extension;
+            $file->move(public_path('/images/services'),$filename);
             Service::create([
             'title'=>$request->input('title'),
             'description'=>$request->input('description'),
@@ -54,5 +53,10 @@ class ServiceController extends Controller
     public function adminShow(){
         $services = Service::all();
         return view('admin.services.show',compact('services'));
+    }
+    public function deleteService(Request $request){
+        $id = $request->id; 
+        Service::where('id',$id)->delete();
+        return redirect()->route('admin.services.show');
     }
 }

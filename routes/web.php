@@ -71,8 +71,10 @@ Route::post('/register',[RegisterController::class,'store'])->name('register.sto
 Route::get('/admin/services',[ServiceController::class,'adminShow'])->name('admin.services.show');
 Route::get('/admin/services/create',[ServiceController::class,'getCreateService'])->name('admin.services.get.create');
 Route::post('/admin/services/create',[ServiceController::class,'postCreateService'])->name('services.create');
+Route::post('/admin/services/delete',[ServiceController::class,'deleteService'])->name('services.delete');
 
 //Members
 Route::get('/admin/members',[MemberController::class,'adminShow'])->name('admin.members.show');
 Route::get('/admin/members/create',[MemberController::class,'getAddMember'])->name('admin.members.get.create');
 Route::post('/admin/members/create',[MemberController::class,'postAddMember'])->name('members.create');
+Route::post('/admin/members/delete',[MemberController::class,'deleteMember'])->name('members.delete');
