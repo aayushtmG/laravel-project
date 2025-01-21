@@ -10,6 +10,8 @@ return [
     'news'=>'News',
     'will appear'=>'will appear',
     'here'=>'here',
+    'toll'=>'Toll',
+    'free'=>'free',
 
 ];
 
