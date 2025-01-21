@@ -8,10 +8,17 @@ return [
     'services'=>'Services',
     'team'=>'Team',
     'news'=>'News',
-    'will appear'=>'will appear',
+    'will_appear'=>'will appear',
     'here'=>'here',
     'toll'=>'Toll',
     'free'=>'free',
+
+    'our'=> 'our',
+    'location'=> 'Location',
+    'download'=>'Download',
+    'forms'=>'Forms',
+    'careers'=>'Careers',
+    'login'=>'Login',
 
 ];
 

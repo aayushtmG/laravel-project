@@ -8,11 +8,17 @@ return [
     'services'=>'सुविधाहरु',
     'team'=>'समूह',
     'news'=>' समाचार ',
-    'will appear'=>'देखिनेछ ',
+    'will_appear'=>'देखिनेछ ',
     'here'=>'यहाँ',
     'toll'=>'टोल ',
     'free'=>'फ्री',
 
+    'our'=> 'हाम्रो ',
+    'location'=> 'ठेगाना',
+    'download'=>'डाउनलोड',
+    'forms'=>'फारम',
+    'careers'=>'करियर',
+    'login'=>'लग इन ',
     
 
 ];
