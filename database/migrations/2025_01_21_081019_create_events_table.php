@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -16,6 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('image');
+            $table->timestamp('start_date')->useCurrent();
+            $table->timestamp('end_date')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timeStamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

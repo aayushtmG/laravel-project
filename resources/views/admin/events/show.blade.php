@@ -19,7 +19,8 @@
                       <th class="px-4 py-3">Title</th>
                       <th class="px-4 py-3">Image</th>
                       <th class="px-4 py-3">Description</th>
-                      <th class="px-4 py-3">Date</th>
+                      <th class="px-4 py-3">Start Date</th>
+                      <th class="px-4 py-3">End Date</th>
                       <th class="px-4 py-3">Actions</th>
                     </tr>
                   </thead>
@@ -29,23 +30,26 @@
                   @foreach ($events as $event)
                     <tr class="text-gray-700">
                       <td class="px-4 py-3 font-semibold">
-                        {{$events->title}}
+                        {{$event->title}}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        <img src="/images/events/{{$events->image}}"
+                        <img src="/images/events/{{$event->image}}"
                         class="max-w-[150px]"/>
                       </td>
                       <td class="px-4 py-3 text-xs ">
                         <p class="text-sm">
-                        {{substr($events->description,0,25).'...'}}
+                        {{substr($event->description,0,25).'...'}}
                         </p>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{$events->updated_at->format('Y-m-d')}}  
+                        {{$event->start_date->format('Y-m-d')}}  
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        {{$event->end_date->format('Y-m-d')}}  
                       </td>
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
-                          <a href="{{route('admin.events.get.edit',['id'=> $events['id']])}}">
+                          <a href="{{route('admin.events.get.edit',['id'=> $event['id']])}}">
                           <button
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray hover:text-slate-800"
                             aria-label="Edit"
@@ -65,7 +69,7 @@
                           </a>
                           <form action="{{route('events.delete')}}" method="POST">
                             @csrf
-                          <input type="hidden" value="{{$events->id}}" name="id">
+                          <input type="hidden" value="{{$event->id}}" name="id">
                           <button
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray hover:text-slate-800"
                             aria-label="Delete"
