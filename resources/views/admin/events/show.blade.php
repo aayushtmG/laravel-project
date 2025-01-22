@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 <div class="p-6">
+
   {{-- header --}}
   <div class="flex justify-between items-center my-4">
     <h1 class="text-2xl font-semibold text-slate-600">
-    All Members 
+    Events 
 </h1>
-    <a href="{{route('admin.members.get.create')}}" class="btn hover:bg-slate-800 hover:text-white">Add Member</a>
+    <a href="{{route('admin.events.get.create')}}" class="btn hover:bg-slate-800 hover:text-white">Add Events</a>
   </div>
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
               <div class="w-full overflow-x-auto">
@@ -15,40 +16,36 @@
                     <tr
                       class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase  border border-black "
                     >
-                      <th class="px-4 py-3">Name</th>
+                      <th class="px-4 py-3">Title</th>
                       <th class="px-4 py-3">Image</th>
-                      <th class="px-4 py-3">Position</th>
-                      <th class="px-4 py-3">Department</th>
-                      <th class="px-4 py-3">Contact</th>
+                      <th class="px-4 py-3">Description</th>
+                      <th class="px-4 py-3">Date</th>
                       <th class="px-4 py-3">Actions</th>
                     </tr>
                   </thead>
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 "
                   >
-                  @foreach ($members as $member)
+                  @foreach ($events as $event)
                     <tr class="text-gray-700">
-                      <td class="px-4 py-3">
-                        {{$member->name}}
+                      <td class="px-4 py-3 font-semibold">
+                        {{$events->title}}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        <img src="/images/teams/{{$member->department}}/{{$member->image}}"
-                        class="max-h-[100px] rounded-md"/>
+                        <img src="/images/events/{{$events->image}}"
+                        class="max-w-[150px]"/>
                       </td>
                       <td class="px-4 py-3 text-xs ">
-                        <p class="">
-                          {{$member->position}}
+                        <p class="text-sm">
+                        {{substr($events->description,0,25).'...'}}
                         </p>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{$member->department}} 
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        {{$member->contact}} 
+                        {{$events->updated_at->format('Y-m-d')}}  
                       </td>
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
-                          <a href="{{route('admin.members.get.edit',['id'=>$member->id])}}">
+                          <a href="{{route('admin.events.get.edit',['id'=> $events['id']])}}">
                           <button
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray hover:text-slate-800"
                             aria-label="Edit"
@@ -64,10 +61,11 @@
                               ></path>
                             </svg>
                           </button>
-                        </a>
-                          <form action="{{route('members.delete')}}" method="POST">
+
+                          </a>
+                          <form action="{{route('events.delete')}}" method="POST">
                             @csrf
-                          <input type="hidden" value="{{$member->id}}" name="id">
+                          <input type="hidden" value="{{$events->id}}" name="id">
                           <button
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray hover:text-slate-800"
                             aria-label="Delete"
@@ -86,7 +84,6 @@
                               ></path>
                             </svg>
                           </button>
-
                           </form>
                         </div>
                       </td>
@@ -100,7 +97,7 @@
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 "
               >
                 <span class="flex items-center col-span-3">
-                  Showing 10 of 10
+                  Showing 21-30 of 100
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination -->

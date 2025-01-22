@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->text('image');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timeStamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

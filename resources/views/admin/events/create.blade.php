@@ -4,7 +4,7 @@
   {{-- header --}}
   <div class="flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-slate-600">
-    Add Members 
+    Add Events 
 </h1>
     <a href="{{route('admin.members.show')}}" class="btn hover:bg-slate-800 hover:text-white">All Members</a>
   </div>

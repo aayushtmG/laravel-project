@@ -12,9 +12,12 @@ use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\AdminPageController; 
 use App\Http\Controllers\Auth\RegisterController; 
 use App\Http\Controllers\MemberController; 
+use App\Http\Controllers\EventController; 
+use App\Http\Controllers\NewsController; 
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
+Route::get('/lang/{language}', [LanguageController::class,'languageSwitch']);
 
 Route::get('/team',[MemberController::class,'show'])->name('team');
 Route::get('/messages',function(){
@@ -59,7 +62,8 @@ Route::get('/language-switch',[LanguageController::class,'languageSwitch'])->nam
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
 
 
-//ADMIN SECTION
+//ADMIN SECTION---------------------------------------------
+
 //admin dashboard
 Route::get('/admin',[AdminPageController::class,'index'])->name('admin.index');
 
@@ -71,10 +75,31 @@ Route::post('/register',[RegisterController::class,'store'])->name('register.sto
 Route::get('/admin/services',[ServiceController::class,'adminShow'])->name('admin.services.show');
 Route::get('/admin/services/create',[ServiceController::class,'getCreateService'])->name('admin.services.get.create');
 Route::post('/admin/services/create',[ServiceController::class,'postCreateService'])->name('services.create');
+Route::get('/admin/services/edit/{id}',[ServiceController::class,'getEditService'])->name('admin.services.get.edit');
+Route::post('/admin/services/edit',[ServiceController::class,'postEditService'])->name('services.edit');
 Route::post('/admin/services/delete',[ServiceController::class,'deleteService'])->name('services.delete');
 
 //Members
 Route::get('/admin/members',[MemberController::class,'adminShow'])->name('admin.members.show');
 Route::get('/admin/members/create',[MemberController::class,'getAddMember'])->name('admin.members.get.create');
 Route::post('/admin/members/create',[MemberController::class,'postAddMember'])->name('members.create');
+Route::get('/admin/members/edit/{id}',[MemberController::class,'getEditMember'])->name('admin.members.get.edit');
+Route::post('/admin/members/edit',[MemberController::class,'postEditMember'])->name('members.edit');
 Route::post('/admin/members/delete',[MemberController::class,'deleteMember'])->name('members.delete');
+
+//Events
+Route::get('/admin/events',[EventController::class,'adminShow'])->name('admin.events.show');
+Route::get('/admin/events/create',[EventController::class,'getAddEvent'])->name('admin.events.get.create');
+Route::post('/admin/events/create',[EventController::class,'postAddEvent'])->name('events.create');
+Route::get('/admin/events/edit/{id}',[EventController::class,'getEditEvent'])->name('admin.events.get.edit');
+Route::post('/admin/events/edit',[EventController::class,'postEditEvent'])->name('events.edit');
+Route::post('/admin/events/delete',[EventController::class,'deleteEvent'])->name('events.delete');
+
+
+//News
+Route::get('/admin/news',[NewsController::class,'adminShow'])->name('admin.news.show');
+Route::get('/admin/news/create',[NewsController::class,'getAddNews'])->name('admin.news.get.create');
+Route::post('/admin/news/create',[NewsController::class,'postAddNews'])->name('news.create');
+Route::get('/admin/news/edit/{id}',[NewsController::class,'getEditNews'])->name('admin.news.get.edit');
+Route::post('/admin/news/edit',[NewsController::class,'postEditNews'])->name('news.edit');
+Route::post('/admin/news/delete',[NewsController::class,'deleteNews'])->name('news.delete');

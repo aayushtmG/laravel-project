@@ -11,6 +11,7 @@ class Notice extends Model
    use HasFactory; 
    protected $fillable = [
     'image',
-    'name'
+    'name',
+    'description'
    ];
 }

@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Session;
 class LanguageController extends Controller
 {
     //
-    public function languageSwitch(Request $request){
-        $lang = $request->query('language');
-        Session::put('locale', $lang);
+    public function languageSwitch($language){
+        // $lang = $request->query('language');
+        
+        Session::put('locale', $language);
         return back();
     }
 }
