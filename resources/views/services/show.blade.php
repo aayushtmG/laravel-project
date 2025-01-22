@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Service Cover Image -->
         <div class="col-span-2 space-y-4">
-            <img src="{{ asset('/images/uploads/' . $service->image) }}" alt="{{ $service->name }}" class="w-full rounded-lg shadow-lg">
+            <img src="{{ asset('/images/services/' . $service->image) }}" alt="{{ $service->title }}" class="w-full rounded-lg shadow-lg">
             <!-- Service Details -->
             <h1 class="text-2xl font-bold mb-4">{{ $service->name }}</h1>
             <p class="text-gray-700 mb-6">{{ $service->description }}</p>

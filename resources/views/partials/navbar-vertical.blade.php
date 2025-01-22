@@ -60,10 +60,10 @@
                <div id="navPages" class="collapse">
                   <ul class="nav flex-col">
                         <li class="nav-item">
-                           <a class="nav-link {{ request()->is('admin/pages/news') ? 'active' : '' }}" href="{{ url('admin/pages/news') }}">All News</a>
+                           <a class="nav-link {{ request()->is('admin/news') ? 'active' : '' }}" href="{{ url('admin/news') }}">All News</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link {{ request()->is('admin/pages/add-news') ? 'active' : '' }}" href="{{ url('admin/pages/add-news') }}">Add News</a>
+                           <a class="nav-link {{ request()->is('admin/news/create') ? 'active' : '' }}" href="{{ url('admin/news/create') }}">Add News</a>
                         </li>
                   </ul>
                </div>

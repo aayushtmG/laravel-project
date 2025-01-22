@@ -16,14 +16,14 @@
                             <!-- Links -->
                             <div class="">
                                 <ul class="hidden md:flex md:items-center nav-links">
-                                <li><a href="/" class="px-3 py-2 rounded  nav-links-item" >Home</a></li>
-                               <li> <a href="/about" class="px-3 py-2 rounded nav-links-item">About Us</a></li>
+                                <li><a href="/" class="px-3 py-2 rounded  nav-links-item" >{{__('nav.home')}}</a></li>
+                               <li> <a href="/about" class="px-3 py-2 rounded nav-links-item">{{__('nav.about_us')}}</a></li>
                     <li class="relative">
                         <button 
                             id="desktop-dropdown-button"
                             class="px-3 py-2 rounded nav-links-item inline-flex items-center hover:text-[#00ff00]"
                         >
-                            Services
+                            {{__('nav.services')}}
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
@@ -37,15 +37,15 @@
                         @endforeach
                         </ul>
                     </li>
-                               <li> <a href="/team" class="px-3 py-2 rounded nav-links-item">Team</a></li>
-                               <li> <a href="/messages" class="px-3 py-2 rounded nav-links-item">Messages</a></li>
-                               <li> <a href="/contact" class="px-3 py-2 rounded nav-links-item">Contact Us</a></li>
+                               <li> <a href="/team" class="px-3 py-2 rounded nav-links-item">{{__('nav.team')}}</a></li>
+                               <li> <a href="/messages" class="px-3 py-2 rounded nav-links-item">{{__('nav.messages')}}</a></li>
+                               <li> <a href="/contact" class="px-3 py-2 rounded nav-links-item">{{__('nav.contact_us')}}</a></li>
                                 </ul>
                             </div>
                         </div>
 @if(Route::is('home'))
     <div class="hidden md:flex items-center  bg-white">
-        <h1 class="bg-blue-500 px-6 py-2 font-bold text-base skewed-border ">News</h1>
+        <h1 class="bg-blue-500 px-6 py-2 font-bold text-base skewed-border ">{{__('nav.news')}}</h1>
         <marquee >
         <a href="/" class="text-black">latest news will appear here</a>
         </marquee>

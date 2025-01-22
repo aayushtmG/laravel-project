@@ -109,4 +109,41 @@ class MemberController extends Controller
         Member::where('id',$id)->delete();
         return redirect()->route('admin.members.show');
     }
+    public function getEditMember($id){
+        $member = Member::findOrFail($id);
+        return view('admin.members.edit',compact('member'));
+    }
+    public function postEditMember(Request $request){
+        $id = $request->id;
+        $member = Member::find($id);
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:members,email,'.$id,
+            'contact' => 'required|min:8',
+            'position' => 'required',
+            'department'=> 'required',
+        ]);
+        if($request->hasFile('image')){
+            $previousImage = $member->image;
+            $previousFilepath = public_path('images/teams/'.$member->department.$previousImage);
+            if(file_exists($previousFilepath)){
+                unlink($previousFilepath);
+            }
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = str_replace(' ','_',$request->name).'.'.$extension;
+            $file->move(public_path('/images/teams/'.$member->department),$filename);
+            $member->image = $filename;
+        }
+        $member->update([
+        'name'=> $request->input('name'),
+        'position' => $request->input('position'),
+        'email'=> $request->input('email'),
+        'contact'=>$request->input('contact'),
+        'department'=>$request->input('department'),
+        'image'=>$member->image
+        ]);
+        return redirect()->route('admin.members.show');
+
+    }
 }

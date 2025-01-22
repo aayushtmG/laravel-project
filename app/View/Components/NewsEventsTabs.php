@@ -5,32 +5,16 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-
+use App\Models\News;
 class NewsEventsTabs extends Component
 {
     public $news;
     public $events;
-
     public function __construct()
     {
         //todo: make this dynamic
-            $this->news = collect([
-                [
-                    'title' => 'First News Item',
-                    'image' => '/images/banner-1.jpg',
-                    'created_at' => now()->subDays(1),
-                    'content' => 'Some news content here'
-                ],
-                [
-                    'title' => 'Second News Item',
-                    'image' => '/images/banner-2.jpg',
-                    'created_at' => now()->subDays(2),
-                    'content' => 'More news content'
-                ],
-                // Add more dummy news items as needed
-            ]);
+            $this->news = News::all();
 
-            // Dummy events data
             $this->events = collect([
                 [
                     'title' => 'First Event',

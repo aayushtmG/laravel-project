@@ -27,15 +27,16 @@
     <div x-show="activeTab === 'news'" x-transition>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach($news as $item)
+            <a href="/news/{{$item['id']}}">
             <div class="bg-white p-4 rounded shadow">
                 @if(isset($item['image']))
-                    <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" class="w-full h-48 object-cover mb-4">
+                    <img src="/images/news/{{ $item['image'] }}" alt="{{ $item['title'] }}" class="w-full h-48 object-cover mb-4">
                 @endif
                 <h3 class="font-bold text-lg">{{ $item['title'] }}</h3>
                 <p class="text-gray-600 text-sm">{{ $item['created_at']->format('M d, Y') }}</p>
             </div>
+            </a>
             @endforeach
-
         </div>
     </div>
     <div x-show="activeTab === 'events'" x-transition>

@@ -45,8 +45,9 @@
                       </td>
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
+                          <a href="{{route('admin.services.get.edit',['id'=> $service['id']])}}">
                           <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray hover:text-slate-800"
                             aria-label="Edit"
                           >
                             <svg
@@ -60,11 +61,13 @@
                               ></path>
                             </svg>
                           </button>
+
+                          </a>
                           <form action="{{route('services.delete')}}" method="POST">
                             @csrf
                           <input type="hidden" value="{{$service->id}}" name="id">
                           <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray hover:text-slate-800"
                             aria-label="Delete"
                             type="submit"
                           >
