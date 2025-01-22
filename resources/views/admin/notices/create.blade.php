@@ -4,28 +4,28 @@
   {{-- header --}}
   <div class="flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-slate-600">
-    Add Services 
+    Add Notices 
 </h1>
-    <a href="{{route('admin.services.show')}}" class="btn hover:bg-slate-800 hover:text-white">All Services</a>
+    <a href="{{route('admin.notices.show')}}" class="btn hover:bg-slate-800 hover:text-white">All notices</a>
   </div>
-  <form action="{{route('services.create')}}" class=" flex gap-10 py-4" method="POST" enctype="multipart/form-data">
+  <form action="{{route('notices.create')}}" class=" flex gap-10 py-4" method="POST" enctype="multipart/form-data">
     @csrf
    <div class="flex flex-col gap-4 shadow-md p-4 rounded-md w-full ">
     <h1 class="text-2xl font-semibold text-slate-600">
-    Service Information:</h1>
+    Notice Information:</h1>
       {{-- title --}}
       <div class="flex flex-col">
-      <label for="service_title">Service Title:</label> 
-      <input type="text" id="service_title" name="title" class="border border-slate-300 rounded-sm p-2" placeholder="Enter Service Title" value="{{old('title')}}">
+      <label for="notices_title">Notice Title:</label> 
+      <input type="text" id="notices_title" name="title" class="border border-slate-300 rounded-sm p-2" placeholder="Enter notices Title" value="{{old('title')}}">
       @if($errors->has('title'))
       <div class="text-sm text-red-500 mt-1">*{{$errors->first('title')}}</div> 
       @endif
       </div>
       {{-- description --}}
       <div class="flex flex-col">
-        <label for="service_description">Service Description:</label> 
-        <textarea id="service_description" name="description" class="border border-slate-300 rounded-sm min-h-[200px] p-3"
-        placeholder="Enter the service description here...."
+        <label for="notices_description">Notice Description:</label> 
+        <textarea id="notices_description" name="description" class="border border-slate-300 rounded-sm min-h-[200px] p-3"
+        placeholder="Enter the notices description here...."
         >{{old('description')}}</textarea> 
       @if($errors->has('description'))
       <div class="text-sm text-red-500 mt-1">*{{$errors->first('description')}}</div> 
@@ -35,7 +35,7 @@
     </div> 
     {{-- image --}}
     <div class="space-y-2 shadow-md p-4 rounded-md h-[400px]">
-      <label for="image-upload" class="font-semibold">Select Service Image:</label>
+      <label for="image-upload" class="font-semibold">Select Notice Image:</label>
     <div class="mb-3 text-center h-[300px] max-w-[300px] border mx-auto">
         <img id="image_preview" src="{{ asset('images/icons/no-image.png') }}" alt="No Image Available" class="w-[300px] h-[300px] object-cover" >
     </div>

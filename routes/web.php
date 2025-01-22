@@ -103,3 +103,11 @@ Route::post('/admin/news/create',[NewsController::class,'postAddNews'])->name('n
 Route::get('/admin/news/edit/{id}',[NewsController::class,'getEditNews'])->name('admin.news.get.edit');
 Route::post('/admin/news/edit',[NewsController::class,'postEditNews'])->name('news.edit');
 Route::post('/admin/news/delete',[NewsController::class,'deleteNews'])->name('news.delete');
+
+//Notices
+Route::get('/admin/notices',[NoticeController::class,'adminShow'])->name('admin.notices.show');
+Route::get('/admin/notices/create',[NoticeController::class,'getAddNotice'])->name('admin.notices.get.create');
+Route::post('/admin/notices/create',[NoticeController::class,'postAddNotice'])->name('notices.create');
+Route::get('/admin/notices/edit/{id}',[NoticeController::class,'getEditNotice'])->name('admin.notices.get.edit');
+Route::post('/admin/notices/edit',[NoticeController::class,'postEditNotice'])->name('notices.edit');
+Route::post('/admin/notices/delete',[NoticeController::class,'deleteNotice'])->name('notices.delete');

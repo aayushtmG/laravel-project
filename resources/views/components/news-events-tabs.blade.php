@@ -1,4 +1,4 @@
-<div x-data="{ activeTab: 'news' }" class="w-full">
+<div x-data="{ activeTab: 'news' }" class="w-full  min-h-[400px]">
     <div class="relative flex gap-8 border-b border-gray-200 mb-4">
         <!-- Tabs -->
         <button 
@@ -24,7 +24,7 @@
 
     </div>
 
-    <div x-show="activeTab === 'news'" x-transition>
+    <div x-show="activeTab === 'news'" >
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach($news as $item)
             <a href="/news/{{$item['id']}}">
@@ -39,12 +39,12 @@
             @endforeach
         </div>
     </div>
-    <div x-show="activeTab === 'events'" x-transition>
+    <div x-show="activeTab === 'events'" >
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach($events as $item)
             <div class="bg-white p-4 rounded shadow">
                 @if(isset($item['image']))
-                    <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" class="w-full h-48 object-cover mb-4">
+                    <img src="/images/events/{{ $item['image'] }}" alt="{{ $item['title'] }}" class="w-full h-48 object-cover mb-4">
                 @endif
                 <h3 class="font-bold text-lg">{{ $item['title'] }}</h3>
                 <p class="text-gray-600 text-sm">
@@ -62,6 +62,5 @@
          <div class="my-4 col-span-2">
             <button class="block mx-auto ">
                 <a class="text-sm border px-3 py-1 mx-auto border-gray-500 rounded-md text-gray-700 hover:border-blue-600 hover:bg-blue-600 hover:text-white transition-colors ease-out" href="/">View More</a>
-            </button>
           </div> 
 </div>

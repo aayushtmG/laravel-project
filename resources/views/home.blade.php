@@ -5,21 +5,21 @@
   @include('components.main-services')
   <!-- Modal -->
   <div x-show='showModal' x-data='{showModal : true,currentNoticeIndex:0,notices: @json($notices)}' class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" @click='showModal=false'>
-      <div class="bg-white p-5 rounded-lg max-w-sm w-full" @click.stop>
+      <div class="bg-white p-1 rounded-lg max-w-[90%] xl:max-w-screen-lg max-h-screen w-full overflow-y-scroll"  @click.stop>
           <div class="flex justify-end">
-              <button @click="showModal = false" class="text-gray-500"><i class="fa-solid fa-xmark"></i></button>
+              <button @click="showModal = false" class="text-gray-500"><i class="fa-solid fa-xmark 2xl:text-2xl text-lg  mr-4"></i></button>
           </div>
-      <div class="mb-4">
-            <!-- Display current notice image -->
-            <img :src="`/images/notices/${notices[currentNoticeIndex].image}`" 
-                 :alt="notices[currentNoticeIndex].name" 
-                 class="w-full h-auto rounded-lg" 
-                @click.stop="if(currentNoticeIndex == notices.length-1){
-                  showModal = false
-                }else{
-                  currentNoticeIndex = (currentNoticeIndex + 1)
-                }"/>
-        </div>
+        <div class="w-full">
+              <!-- Display current notice image -->
+              <img :src="`/images/notices/${notices[currentNoticeIndex].image}`" 
+                  :alt="notices[currentNoticeIndex].name" 
+                  class="w-full h-auto rounded-lg" 
+                  @click.stop="if(currentNoticeIndex == notices.length-1){
+                    showModal = false
+                  }else{
+                    currentNoticeIndex = (currentNoticeIndex + 1)
+                  }"/>
+          </div>
       </div>
   </div>
       {{-- Introduction Section --}}

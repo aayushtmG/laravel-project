@@ -52,7 +52,7 @@
     </div>
       <input type="file" id="image-upload"  accept="image/*" onchange="previewImage(event)" name="image">
       @if($errors->has('image'))
-      <div class="text-sm text-red-500 translate-y-3">*{{$errors->first('image')}}</div> 
+      <div class="text-sm text-red-500 translate-y-4">*{{$errors->first('image')}}</div> 
       @endif
     </div>
   </form>  

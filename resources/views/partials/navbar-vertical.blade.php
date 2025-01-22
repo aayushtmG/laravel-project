@@ -86,6 +86,23 @@
          </li>
 
 
+         <li class="nav-item ">
+               <a class="nav-link"  onclick="toggleDropdown(event)" >
+                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  Notices
+               </a>
+               <div id="navPages" class="collapse">
+                  <ul class="nav flex-col">
+                        <li class="nav-item">
+                           <a class="nav-link {{ request()->is('admin/notices') ? 'active' : '' }}" href="{{ url('admin/notices') }}">All Notices</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link {{ request()->is('admin/notices/create') ? 'active' : '' }}" href="{{ url('admin/notices/create') }}">Add Notices</a>
+                        </li>
+                  </ul>
+               </div>
+         </li>
+
 
 
       </ul>

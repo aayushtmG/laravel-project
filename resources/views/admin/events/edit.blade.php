@@ -9,9 +9,6 @@
 </h1>
     <a href="{{route('admin.events.show')}}" class="btn hover:bg-slate-800 hover:text-white">All Events</a>
   </div>
-@if($errors->any())
-    {{ implode('', $errors->all('<div>:message</div>')) }}
-@endif
   <form action="{{route('events.edit')}}" class=" flex gap-10 py-4" method="POST" enctype="multipart/form-data">
     @csrf
    <div class="flex flex-col gap-4 shadow-md p-4 rounded-md w-full ">
@@ -21,6 +18,9 @@
       <div class="flex flex-col">
       <label for="event_title">Event Title:</label> 
       <input type="text" id="event_title" name="title" class="border border-slate-300 rounded-sm p-2" placeholder="Enter Event Title" value='{{$event->title}}'>
+      @if($errors->has('title'))
+      <div class="text-sm text-red-500 mt-1">*{{$errors->first('title')}}</div> 
+      @endif
       </div>
       {{-- description --}}
       <div class="flex flex-col">
@@ -28,6 +28,9 @@
         <textarea id="event_description" name="description" class="border border-slate-300 rounded-sm min-h-[200px] p-3"
         placeholder="Enter the event description here...."
         >{{$event->description}}</textarea> 
+      @if($errors->has('description'))
+      <div class="text-sm text-red-500 mt-1">*{{$errors->first('description')}}</div> 
+      @endif
       </div>
     <button type="submit" class="btn w-max bg-slate-800 text-white hover:bg-slate-800/90">Submit</button>
     </div> 
