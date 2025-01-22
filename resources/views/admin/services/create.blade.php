@@ -16,14 +16,20 @@
       {{-- title --}}
       <div class="flex flex-col">
       <label for="service_title">Service Title:</label> 
-      <input type="text" id="service_title" name="title" class="border border-slate-300 rounded-sm p-2" placeholder="Enter Service Title">
+      <input type="text" id="service_title" name="title" class="border border-slate-300 rounded-sm p-2" placeholder="Enter Service Title" value="{{old('title')}}">
+      @if(errors->has('title'))
+      <div class="text-sm text-red-500 mt-1">*{{$errors->first('title')}}</div> 
+      @endif
       </div>
       {{-- description --}}
       <div class="flex flex-col">
         <label for="service_description">Service Description:</label> 
         <textarea id="service_description" name="description" class="border border-slate-300 rounded-sm min-h-[200px] p-3"
         placeholder="Enter the service description here...."
-        ></textarea> 
+        >{{old('description')}}</textarea> 
+      @if(errors->has('description'))
+      <div class="text-sm text-red-500 mt-1">*{{$errors->first('description')}}</div> 
+      @endif
       </div>
     <button type="submit" class="btn w-max bg-slate-800 text-white hover:bg-slate-800/90">Submit</button>
     </div> 
@@ -34,6 +40,9 @@
         <img id="image_preview" src="{{ asset('images/icons/no-image.png') }}" alt="No Image Available" class="w-[300px] h-[300px] object-cover" >
     </div>
       <input type="file" id="image-upload"  accept="image/*" onchange="previewImage(event)" name="image">
+      @if($errors->has('image'))
+      <div class="text-sm text-red-500 translate-y-3">*{{$errors->first('image')}}</div> 
+      @endif
     </div>
   </form>  
 </div>

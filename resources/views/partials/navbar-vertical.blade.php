@@ -68,8 +68,6 @@
                   </ul>
                </div>
          </li>
-
-
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
                   <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
@@ -78,14 +76,15 @@
                <div id="navPages" class="collapse">
                   <ul class="nav flex-col">
                         <li class="nav-item">
-                           <a class="nav-link {{ request()->is('admin/pages/events') ? 'active' : '' }}" href="{{ url('admin/pages/events') }}">All Events</a>
+                           <a class="nav-link {{ request()->is('admin/events') ? 'active' : '' }}" href="{{ url('admin/events') }}">All Events</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link {{ request()->is('admin/pages/add-events') ? 'active' : '' }}" href="{{ url('admin/pages/add-events') }}">Add Events</a>
+                           <a class="nav-link {{ request()->is('admin/events/create') ? 'active' : '' }}" href="{{ url('admin/events/create') }}">Add Events</a>
                         </li>
                   </ul>
                </div>
          </li>
+
 
 
 

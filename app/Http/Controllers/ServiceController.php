@@ -81,7 +81,13 @@ class ServiceController extends Controller
     }
     public function deleteService(Request $request){
         $id = $request->id; 
-        Service::where('id',$id)->delete();
+        $service = Service::find($id);
+        $previousImage = $service->image;
+        $previousFilepath = public_path('images/services/'.$previousImage);
+        if(file_exists($previousFilepath)){
+                unlink($previousFilepath);
+        }
+        $service->delete();
         return redirect()->route('admin.services.show');
     }
 }

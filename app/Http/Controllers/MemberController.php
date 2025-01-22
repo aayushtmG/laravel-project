@@ -67,8 +67,8 @@ class MemberController extends Controller
     //         'image'=>'/images/members/profile-4.jpg',
     //     ]
     //     ]);
-    $members = Member::all()->where('department','management');
-    $board = Member::all()->where('department','board');
+        $members = Member::all()->where('department','management');
+        $board = Member::all()->where('department','board');
         return view('team',compact('members','board'));
     }
     public function adminShow(){
@@ -106,7 +106,14 @@ class MemberController extends Controller
     }
     public function deleteMember(Request $request){
         $id = $request->id; 
-        Member::where('id',$id)->delete();
+        $member = Member::find($id);
+        // removing image
+        $previousImage = $member->image;
+        $previousFilepath = public_path('/images/teams/'.$member->department.'/'.$member->image);
+        if(file_exists($previousFilepath)){
+            unlink($previousFilepath);
+        }
+        $member->delete();
         return redirect()->route('admin.members.show');
     }
     public function getEditMember($id){
