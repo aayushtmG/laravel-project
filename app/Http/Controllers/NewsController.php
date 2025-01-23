@@ -7,9 +7,11 @@ use App\Models\News;
 
 class NewsController extends Controller
 {
-    public function show(){
-        $news = News::all();
-        return view('news',compact('news'));
+    public function show($id){
+        $news = News::find($id);
+        $relatedNews = News::where('id','!=',$id)->get();
+        $title = 'News | '.$news->title;
+        return view('news.show',compact('news','relatedNews','title'));
     }
     public function adminShow(){
         $news = News::all();

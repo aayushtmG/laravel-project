@@ -5,15 +5,14 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Service;
 
-class ProductServicesCard extends Component
+class ProductServices extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+    public $services;
     public function __construct()
     {
-        //
+        $this->services = Service::all();
     }
 
     /**
@@ -21,7 +20,6 @@ class ProductServicesCard extends Component
      */
     public function render(): View|Closure|string
     {
-        
-        return view('components.product-services-card');
+        return view('components.product-services');
     }
 }

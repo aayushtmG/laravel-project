@@ -19,7 +19,8 @@ class ServiceController extends Controller
     public function show($id){
         $service = Service::findOrFail($id);
         $relatedServices = Service::where('id','!=',$id)->get();
-        return view('services.show',compact('service','relatedServices'));
+        $title = 'Service | '.$service->title;
+        return view('services.show',compact('service','relatedServices','title'));
     }
 
     public function postCreateService(Request $request){

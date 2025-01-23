@@ -14,56 +14,27 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\MemberController; 
 use App\Http\Controllers\EventController; 
 use App\Http\Controllers\NewsController; 
+use App\Http\Controllers\MessageController; 
+use App\Http\Controllers\NewsEventsController; 
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/lang/{language}', [LanguageController::class,'languageSwitch']);
-
-Route::get('/team',[MemberController::class,'show'])->name('team');
-Route::get('/messages',function(){
-    $messages = collect([
-        [
-           'name'=>'Ram Bahadur Gurung',
-            'image'=>'/images/members/profile-1.jpg',
-            'position'=> 'President',
-            'email'=>'president@babylon.com',
-            'content'=>['As the President of Babylon Cooperative Ltd., I am deeply honored to address you on behalf of our organization. Over the years, our cooperative has remained steadfast in its mission to empower communities, foster innovation, and drive sustainable growth. Our achievements would not have been possible without your unwavering support and dedication. Together, we have created a thriving ecosystem where shared values, mutual trust, and a commitment to excellence have propelled us toward success. As we look to the future, we aim to continue building a cooperative that not only meets the needs of today but also paves the way for future generations to thrive.',
-            'Let us remain united in our pursuit of progress as we embrace new opportunities and overcome challenges with resilience and creativity. At Babylon Cooperative Ltd., we believe in the power of collaboration and the strength of community, which have been the cornerstones of our success. Moving forward, we are committed to upholding our principles, fostering innovation, and delivering value to every member and partner associated with us. Thank you for your trust, hard work, and shared vision, which inspire us to reach even greater heights. Together, we will continue to shape a brighter and more sustainable future.']],
-            [
-                'name'=>'Shyam Bahadur Gautam',
-            'image'=>'/images/members/profile-3.jpg',
-            'position'=> 'Chief Executive Officer',
-            'email'=>'ceo@babylon.com',
-            'content'=>['As the CEO of Babylon Cooperative Ltd., I am proud to share that our organization continues to set benchmarks in innovation, sustainability, and community empowerment. We remain focused on delivering exceptional value to our stakeholders while staying true to our core principles of collaboration and mutual growth. Recent initiatives have strengthened our operational efficiency and expanded our impact, ensuring we are well-positioned to seize new opportunities in an ever-evolving landscape.','Our vision is to build a cooperative that not only drives economic progress but also creates lasting social and environmental benefits. By leveraging cutting-edge technology, fostering partnerships, and prioritizing the needs of our members, we are paving the way for a future defined by resilience and growth. The road ahead is filled with potential, and I am confident in our collective ability to overcome challenges and achieve our goals.'
-                ]],
-                [
-           'name'=>'Rameshwor Yadav',
-            'image'=>'/images/members/profile-5.jpg',
-            'position'=> 'Information Officer',
-            'email'=>'officer@babylon.com',
-            'content'=>['As the Information Officer of Babylon Cooperative Ltd., I am pleased to highlight the ongoing efforts to enhance communication and transparency across all levels of our organization. Ensuring that our members and stakeholders are well-informed remains a top priority, and we continue to invest in systems and channels that promote timely and accurate dissemination of information. This commitment not only strengthens trust but also empowers everyone involved to contribute effectively to our shared mission.',
-            'Our focus is on creating a more connected and collaborative environment by embracing modern tools and practices for information management. By improving accessibility and fostering open dialogue, we aim to support informed decision-making and drive progress in all areas of our cooperative. Clear, consistent, and effective communication will remain at the heart of our approach as we advance toward achieving our collective goals.']
-            ]
-        ]);
-            return view('message',compact('messages'));
-            });
-Route::get('/contact',function(){
-return view('contact');
-});
-Route::get('/about',function(){
-    return view('about');
-});
-
-
 Route::get('/language-switch',[LanguageController::class,'languageSwitch'])->name('language.switch');
-
-
-//SERVICE 
+Route::get('/team',[MemberController::class,'show'])->name('team');
+Route::get('/messages',[MessageController::class,'show'])->name('messages');
+Route::get('/contact',function(){return view('contact');});
+Route::get('/about',function(){return view('about');});
+Route::get('/news-events',[NewsEventsController::class,'show'])->name('news-events');
+Route::get('/notices',[NoticeController::class,'index'])->name('notices');
+Route::get('/notices/{id}',[NoticeController::class,'show'])->name('notices.show');
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
+Route::get('/news/{id}',[NewsController::class,'show'])->name('news.show');
+Route::get('/event/{id}',[EventController::class,'show'])->name('event.show');
+
 
 
 //ADMIN SECTION---------------------------------------------
-
 //admin dashboard
 Route::get('/admin',[AdminPageController::class,'index'])->name('admin.index');
 
@@ -78,6 +49,7 @@ Route::post('/admin/services/create',[ServiceController::class,'postCreateServic
 Route::get('/admin/services/edit/{id}',[ServiceController::class,'getEditService'])->name('admin.services.get.edit');
 Route::post('/admin/services/edit',[ServiceController::class,'postEditService'])->name('services.edit');
 Route::post('/admin/services/delete',[ServiceController::class,'deleteService'])->name('services.delete');
+
 
 //Members
 Route::get('/admin/members',[MemberController::class,'adminShow'])->name('admin.members.show');
@@ -111,3 +83,12 @@ Route::post('/admin/notices/create',[NoticeController::class,'postAddNotice'])->
 Route::get('/admin/notices/edit/{id}',[NoticeController::class,'getEditNotice'])->name('admin.notices.get.edit');
 Route::post('/admin/notices/edit',[NoticeController::class,'postEditNotice'])->name('notices.edit');
 Route::post('/admin/notices/delete',[NoticeController::class,'deleteNotice'])->name('notices.delete');
+
+
+//Messages
+Route::get('/admin/messages',[MessageController::class,'adminShow'])->name('admin.messages.show');
+Route::get('/admin/messages/create',[MessageController::class,'getAddMessage'])->name('admin.messages.get.create');
+Route::post('/admin/messages/create',[MessageController::class,'postAddMessage'])->name('messages.create');
+Route::get('/admin/messages/edit/{id}',[MessageController::class,'getEditMessage'])->name('admin.messages.get.edit');
+Route::post('/admin/messages/edit',[MessageController::class,'postEditMessage'])->name('messages.edit');
+Route::post('/admin/messages/delete',[MessageController::class,'deleteMessage'])->name('messages.delete');

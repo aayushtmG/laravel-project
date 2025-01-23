@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
+            $table->string('email');
+            $table->string('position');
+            $table->string('image');
+            $table->longText('message');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timeStamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

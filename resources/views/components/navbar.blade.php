@@ -45,9 +45,9 @@
                         </div>
 @if(Route::is('home'))
     <div class="hidden md:flex items-center  bg-white">
-        <h1 class="bg-blue-500 px-6 py-2 font-bold text-base skewed-border ">{{__('nav.news')}}</h1>
+        <h1 class="bg-blue-500 px-6 py-2 font-bold skewed-border ">{{__('nav.news')}}</h1>
         <marquee >
-        <a href="/" class="text-black">latest news will appear here</a>
+        <a href="/news/{{$latestNews['id']}}" class="text-blue-800 text-base">{{$latestNews['title']}}</a>
         </marquee>
     </div>                        
 @endif 
@@ -58,15 +58,15 @@
             class="overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out md:hidden"
         >
             <ul class="flex flex-col">
-                <li><a href="/" class="block px-4 py-2 nav-links-item">Home</a></li>
-                <li><a href="/about" class="block px-4 py-2 nav-links-item">About Us</a></li>
+                <li><a href="/" class="block px-4 py-2 nav-links-item">{{__('nav.home')}}</a></li>
+                <li><a href="/about" class="block px-4 py-2 nav-links-item">{{__('nav.about_us')}}</a></li>
                 <li>
                     <div class="relative">
                         <button 
                             id="mobile-dropdown-button"
                             class="flex w-full px-4 py-2 text-left nav-links-item"
                         >
-                            Services
+{{__('nav.services')}}
                         </button>
                         <ul 
                             id="mobile-dropdown-menu"
@@ -78,7 +78,9 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="/contact" class="block px-4 py-2 nav-links-item">Contact Us</a></li>
+                <li><a href="/team" class="block px-4 py-2 nav-links-item">{{__('nav.team')}}</a></li>
+                <li><a href="/messages" class="block px-4 py-2 nav-links-item">{{__('nav.messages')}}</a></li>
+                <li><a href="/contact" class="block px-4 py-2 nav-links-item">{{__('nav.contact_us')}}</a></li>
             </ul>
         </div>
     </div>

@@ -85,7 +85,6 @@
                </div>
          </li>
 
-
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
                   <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
@@ -102,6 +101,31 @@
                   </ul>
                </div>
          </li>
+
+         <li class="nav-item ">
+               <a class="nav-link"  onclick="toggleDropdown(event)" >
+                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  Messages
+               </a>
+               <div id="navPages" class="collapse">
+                  <ul class="nav flex-col">
+                        <li class="nav-item">
+                           <a class="nav-link {{ request()->is('admin/messages') ? 'active' : '' }}" href="{{ url('admin/messages') }}">All Messages</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link {{ request()->is('admin/messages/create') ? 'active' : '' }}" href="{{ url('admin/messages/create') }}">Add Message</a>
+                        </li>
+                  </ul>
+               </div>
+         </li>
+
+         <li class="nav-item ">
+               <a class="nav-link {{ request()->is('admin/settings') ? 'active' : '' }}" href="{{ url('admin/settings') }}"  onclick="toggleDropdown(event)" >
+                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  General Settings
+               </a>
+         </li>
+
 
 
 

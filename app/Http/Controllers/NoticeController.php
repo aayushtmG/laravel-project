@@ -8,10 +8,17 @@ use App\Models\Notice;
 
 class NoticeController extends Controller
 {
-    public function show(){
-    $notices = Notice::all();
-        return view('notice',compact('notices'));
+    public function show($id){
+    $notice = Notice::find($id);
+    $otherNotices = Notice::where('id','!=',$id)->get();
+    $title = 'Notice | '.$notice->title;
+        return view('notices.show',compact('notice','otherNotices','title'));
     }
+    public function index(){
+    $notices = Notice::all();
+        return view('notices.index',compact('notices'));
+    }
+
     public function adminShow(){
         $notices = Notice::all();
         return view('admin.notices.show',compact('notices'));
@@ -38,7 +45,7 @@ class NoticeController extends Controller
         Notice::create([
         'title'=>$request->input('title'),
         'description'=>$request->input('description'),
-        'image'=> $filename ?? null,
+        'image'=> $filename
         ]);
         return redirect()->route('admin.notices.show');
     }

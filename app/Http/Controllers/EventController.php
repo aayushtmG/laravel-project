@@ -7,9 +7,11 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    public function show(){
-    $events = Event::all();
-        return view('event',compact('events'));
+    public function show($id){
+    $event = Event::find($id);
+    $relatedEvents = Event::where('id', '!=',$id)->get();
+    $title = 'Event | '.$event->title; 
+        return view('events.show',compact('event','relatedEvents','title'));
     }
     public function adminShow(){
         $events = Event::all();
