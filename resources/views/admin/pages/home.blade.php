@@ -7,12 +7,10 @@
       <div class="image-preview-container" id="preview-container"></div>
    </form>
 @endsection
-
 @section('scripts')
    <script>
       const imageUploadInput = document.getElementById('image-upload');
       const previewContainer = document.getElementById('preview-container');
-
       imageUploadInput.addEventListener('change', (event) => {
          const files = Array.from(event.target.files);
 
