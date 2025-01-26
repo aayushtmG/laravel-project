@@ -37,6 +37,8 @@ Route::get('/event/{id}',[EventController::class,'show'])->name('event.show');
 //ADMIN SECTION---------------------------------------------
 //admin dashboard
 Route::get('/admin',[AdminPageController::class,'index'])->name('admin.index');
+Route::get('/admin/settings',[AdminPageController::class,'settings'])->name('settings');
+Route::post('/admin/settings',[AdminPageController::class,'settingsUpdate'])->name('settings.update');
 
 //Authentication
 Route::get('/register',[RegisterController::class,'create']);

@@ -3,7 +3,7 @@
    <div id="myScrollableElement" class="h-screen " >
       <!-- brand logo -->
       <a class="navbar-brand text-white text-xl font-semibold" href="{{route('admin.index')}}">
-         Babylon
+         {{$settings->company_name}}
       </a>
       <!-- navbar nav -->
       <ul class="navbar-nav flex-col" id="sideNavbar ">

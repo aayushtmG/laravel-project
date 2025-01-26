@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./app.css">
+      <link rel="icon" type="image/x-icon" href="/images/settings/{{$settings->logo}}">
 
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -48,10 +49,10 @@
       <img src="/images/banner-logo.png" class="max-h-[140px] "/>
       <div>
         <div class="flex items-center gap-2 my-2" >
-          <span><i class="fa-solid fa-phone bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>Toll Free: 166023423491</p>
+          <span><i class="fa-solid fa-phone bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>Toll Free: {{$settings->toll_free_number}} </p>
         </div>
         <div class="flex items-center gap-2">
-          <span><i class="fa-solid fa-envelope bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>info@bhargomovement.coop.np</p>
+          <span><i class="fa-solid fa-envelope bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>{{$settings->company_email}}</p>
         </div>
       </div>
     </div>
@@ -60,72 +61,7 @@
     </header>
     @yield('content')
     </body>
-    <footer class="footer">
-      <div class="footer-upper grid sm:grid-cols-2  sm:place-items-center sm:items-start
-        lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 p-4 md:p-16 ">
-        <div class="footer-list-container">
-          <h3 class="footer-header">Address</h3>
-          <ul class="footer-list flex flex-col gap-1">
-            <li><i class="fa fa-location-arrow" aria-hidden="true"></i>Birtamode-2,Jhapa,Nepal</li>
-            <li><i class="fa fa-phone" aria-hidden="true"></i>234555213</li>
-            <li><i class="fa fa-envelope" aria-hidden="true"></i>something@somethingcoop.np</li>
-          </ul>
-        </div> 
-        {{--  --}}
-        <div class="footer-list-container">
-          <h3 class="footer-header">Office Hour</h3>
-          <ul class="footer-list flex flex-col gap-1">
-            <li><i class="fa fa-calendar" aria-hidden="true"></i>Monday to Sunday</li>
-            <li><i class="fa fa-clock" aria-hidden="true"></i>08:00 AM to 5:00 PM</li>
-            {{-- social links --}}
-            <ul class="flex ">
-              <li><a href="/" ><i class="fa-brands fa-square-facebook text-3xl hover:text-blue-400 transition-colors " ></i></a></li>
-              <li><a href="/"><i class="fa-brands fa-square-instagram text-3xl hover:text-blue-400 transition-colors "></i></a></li>
-              <li><a href="/" ><i class="fa-brands fa-square-youtube text-3xl  hover:text-blue-400 transition-colors "></i></a></li>
-            </ul>
-          </ul>
-        </div> 
-        {{--  --}}
-        <div class="footer-list-container">
-          <h3 class="footer-header">Useful Links</h3>
-          <ul class="footer-list flex flex-col gap-1">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About Us</a></li>
-            <li> <a href="/">Our Services</a></li>
-            <li><a href="/">Contact Us</a></li>
-            <li><a href="/">Latest News</a></li>
-          </ul>
-        </div> 
-        {{--  --}}
-        <div class="footer-list-container">
-          <h3 class="footer-header">Services</h3>
-          <ul class="footer-list flex flex-col gap-1">
-            <li><a href="/">Saving And Deposit</a></li>
-          </ul>
-        </div> 
-{{--  --}}
-        <div class="footer-list-container">
-          <h3 class="footer-header">Others</h3>
-          <ul class="footer-list flex flex-col gap-1">
-            <li><a href="/">Notices</a></li>
-            <li><a href="/">Reports</a></li>
-            <li><a href="/">Downloads</a></li>
-            <li><a href="/">Gallery</a></li>
-          </ul>
-        </div> 
-        {{--  --}}
-        <div class="footer-list-container">
-          <h3 class="footer-header">Explore</h3>
-          <ul class="footer-list flex flex-col gap-1">
-            <li><a href="/">Branches</a></li>
-            <li><a href="/">ATM Locations</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="text-center footer-lower bg-[#0f781c] p-4">
-        <h4 >Copyright &copy 2025,All Rights Reserved</h4>
-        <h4>Something cooop </h4>
-      </div>
-    </footer>
+    {{-- footer --}}
+    <x-footer/>
 </html>
 <script src="//unpkg.com/alpinejs" defer></script>

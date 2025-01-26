@@ -4,38 +4,38 @@
     <div class="flex flex-col p-4 bg-gray-50/80 w-full rounded-lg items-center hover:bg-blue-200 transition-colors ease-out py-8"> 
         <img src="/images/icons/teamwork.png" alt="" class="w-12"> 
         <h6>Members</h6> 
-        <span class="font-bold text-lg">1,85,336</span>
+        <span class=" text-lg">{{$settings->organization_members}}</span>
     </div>
 
     <div class="flex flex-col p-4 bg-gray-50/80 w-full rounded-lg items-center hover:bg-blue-200 transition-colors ease-out py-8"> 
         <img src="/images/icons/management.png" alt="" class="w-12"> 
         <h6>Staff</h6> 
-        <span>468</span>
+        <span>{{$settings->organization_staffs}}</span>
     </div>
 
     <div class="flex flex-col p-4 bg-gray-50/80 w-full rounded-lg items-center hover:bg-blue-200 transition-colors ease-out py-8"> 
         <img src="/images/icons/branch.png" alt="" class="w-12"> 
         <h6>Branch</h6> 
-        <span>82</span>
+        <span>{{$settings->organization_branches}}</span>
     </div>
 
     <div class="flex flex-col p-4 bg-gray-50/80 w-full rounded-lg items-center hover:bg-blue-200 transition-colors ease-out py-8"> 
         <img src="/images/icons/save-money.png" alt="" class="w-12"> 
         <h6>Savings</h6> 
-        <span>13,24,49,26,116</span>
+        <span>{{$settings->organization_savings}}</span>
     </div>
 
 
     <div class="flex flex-col p-4 bg-gray-50/80 w-full rounded-lg items-center hover:bg-blue-200 transition-colors ease-out py-8"> 
         <img src="/images/icons/personal.png" alt="" class="w-12"> 
         <h6>Loan</h6> 
-        <span>13,24,49,26,116</span>
+        <span>{{$settings->organization_loans}}</span>
     </div>
 
     <div class="flex flex-col p-4 bg-gray-50/80 w-full rounded-lg items-center hover:bg-blue-200 transition-colors ease-out py-8"> 
         <img src="/images/icons/pie-chart.png" alt="" class="w-12"> 
         <h6>Share</h6> 
-        <span>13,24,49,26,116</span>
+        <span>{{$settings->organization_shares}}</span>
     </div>
   </div>
 </section>
