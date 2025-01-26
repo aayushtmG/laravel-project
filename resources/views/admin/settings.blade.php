@@ -16,7 +16,7 @@
     <div class="mb-3 text-center  mx-auto space-y-2">
         <img id="logo_image_preview" src="/images/settings/{{$settings->logo}}" alt="No Image Available" class="w-[100px] h-[100px] object-cover" >
         <div class="flex">
-          <input type="file" id="logo-image-upload"  accept="image/*" onchange="previewImage(event)" name="logo_image"/>
+          <input type="file" id="logo_image"  accept="image/*" onchange="previewImage(event)" name="logo_image"/>
             @if($errors->has('logo_image'))
             <div class="text-sm text-red-500 translate-y-4">*{{$errors->first('logo_image')}}</div> 
             @endif
@@ -29,7 +29,7 @@
     <div class="mb-3 text-center  mx-auto space-y-2">
         <img id="banner_image_preview" src="/images/settings/{{$settings->banner_image}}" alt="No Image Available" class="w-[100px] h-[100px] object-cover" >
         <div class="flex">
-          <input type="file" id="banner-image-upload"  accept="image/*" onchange="previewImage(event)" name="banner_image">
+          <input type="file" id="banner_image"  accept="image/*" onchange="previewImage(event)" name="banner_image">
             @if($errors->has('banner_image'))
             <div class="text-sm text-red-500 translate-y-4">*{{$errors->first('banner_image')}}</div> 
             @endif
@@ -75,14 +75,14 @@
 <div>
    <h1 class="admin-header">Home Slider Images</h1>
    <div class="file-input ">
-      <input type="file" id="slider_images" multiple accept="image/*" class="file px-2 image-upload-btn" />
+      <input type="file" id="slider_images" name="slider_images[]"  accept="image/*" class="file px-2 image-upload-btn" multiple />
       <label for="slider_images">
       <i class="fa-solid fa-add mr-2"></i>
         Add Images
         <p class="file-name"></p>
       </label>
    </div>
-      <div class="image-preview-container" id="slider-image-container"></div>
+      <div class="image-preview-container" id="slider_preview_container"></div>
 </div>
 
       {{-- organization profile --}}
@@ -127,9 +127,53 @@
 @endSection
 @section('scripts')
    <script>
-      const imageUploadInput = document.getElementById('logo_image');
-      const previewContainer = document.getElementById('logo_image_preview');
-      imageUploadInput.addEventListener('change', (event) => {
+   function previewImage(event){
+    const input = event.target
+    const preview = document.getElementById(`${input.id}_preview`)
+    if(input.files && input.files[0]){
+      const reader = new FileReader();
+      reader.onload= function(e){
+        preview.src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0])
+    }
+    }
+      const sliderImages = document.getElementById('slider_images');
+      const sliderPreviewContainer = document.getElementById('slider_preview_container');
+      sliderImages.addEventListener('change', (event) => {
+         const files = Array.from(event.target.files);
+         files.forEach((file, index) => {
+            if (!file.type.startsWith('image/')) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+               const previewDiv = document.createElement('div');
+               previewDiv.classList.add('image-preview');
+               const img = document.createElement('img');
+               img.src = e.target.result;
+               const removeButton = document.createElement('button');
+               removeButton.textContent = 'x';
+               removeButton.onclick = () => {
+                  previewDiv.remove();
+                  const fileList = Array.from(sliderImages.files);
+                  fileList.splice(index, 1);
+                  const dataTransfer = new DataTransfer();
+                  fileList.forEach(file => dataTransfer.items.add(file));
+                  sliderImages.files = dataTransfer.files;
+               };
+               previewDiv.appendChild(img);
+               previewDiv.appendChild(removeButton);
+               sliderPreviewContainer.appendChild(previewDiv);
+            };
+            reader.readAsDataURL(file);
+         });
+      });
+   </script>
+  @endsection
+{{-- @section('scripts')
+   <script>
+      const logoImage = document.getElementById('logo_image');
+      const logoPreviewContainer = document.getElementById('logo_image_preview');
+      logoImage.addEventListener('change', (event) => {
          const files = Array.from(event.target.files);
 
          files.forEach((file, index) => {
@@ -145,21 +189,21 @@
                removeButton.textContent = 'x';
                removeButton.onclick = () => {
                   previewDiv.remove();
-                  const fileList = Array.from(imageUploadInput.files);
+                  const fileList = Array.from(logoImage.files);
                   fileList.splice(index, 1);
                   const dataTransfer = new DataTransfer();
                   fileList.forEach(file => dataTransfer.items.add(file));
-                  imageUploadInput.files = dataTransfer.files;
+                  logoImage.files = dataTransfer.files;
                };
                previewDiv.appendChild(img);
                previewDiv.appendChild(removeButton);
-               previewContainer.appendChild(previewDiv);
+               logoPreviewContainer.appendChild(previewDiv);
             };
             reader.readAsDataURL(file);
          });
       });
    </script>
-  @endsection
+  @endsection --}}
 @section('styles')
    <style>
       .image-preview-container {

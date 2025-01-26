@@ -44,7 +44,6 @@
         Alpine.data('carousel_main', () => ({
             images: [
                 '/images/banner-1.jpg',
-                '/images/banner.jpg',
                 '/images/banner-2.jpg',
             ], // Replace with Laravel dynamic images
             currentIndex: 0,

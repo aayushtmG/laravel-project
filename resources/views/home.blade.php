@@ -30,7 +30,7 @@
           <p class="text-justify my-2 mt-4">Bhargo Movement Nepal is a community, group and member based co-operative model microfinance institution established on April 03, 1996, registered under Co-Operative Act. 2058. It is situated at Birtamod Municipality Ward NO: 2 of Jhapa District in Eastern Development Region of Nepal. It is dedicated to the social and economic development of the local community by reducing the poverty. It is providing co-operative microfinance services to the members. It is also involving in a variety of social development programs, such as livelihoods, health & environment, and community empowerment. It strives to raise awareness among the poverty-stricken and the downtrodden as well as to establish sustainable development to guarantee basic necessities and achieve self-sufficiency, thus creating a legitimate society. </p> 
         </div>
         <div>
-          <img src="/images/ceo-image.jpg" alt="ceo image" class="rounded-md"/>
+          <img src="/images/news/asdf.jpg" alt="ceo image" class="rounded-md"/>
           <div class="text-center py-2">
               <h3 class="text-2xl font-bold ">Mr. Sangam Bk</h3>
               <p class="text-gray-700">Chief Executive Officer</p>

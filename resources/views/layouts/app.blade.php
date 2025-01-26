@@ -46,7 +46,7 @@
     </div>
   </div>
     <div class="p-2 flex flex-col items-center justify-center md:flex-row lg:gap-20">
-      <img src="/images/banner-logo.png" class="max-h-[140px] "/>
+      <img src="{{asset('/images/settings/'.$settings->banner_image)}}" class="max-h-[140px] "/>
       <div>
         <div class="flex items-center gap-2 my-2" >
           <span><i class="fa-solid fa-phone bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>Toll Free: {{$settings->toll_free_number}} </p>

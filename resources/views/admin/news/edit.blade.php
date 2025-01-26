@@ -5,37 +5,37 @@
   {{-- header --}}
   <div class="flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-slate-600">
-    Edit Service 
+    Edit News 
 </h1>
-    <a href="{{route('admin.services.show')}}" class="btn hover:bg-slate-800 hover:text-white">All Services</a>
+    <a href="{{route('admin.news.show')}}" class="btn hover:bg-slate-800 hover:text-white">All News</a>
   </div>
-  <form action="{{route('services.edit')}}" class=" flex gap-10 py-4" method="POST" enctype="multipart/form-data">
+  <form action="{{route('news.edit')}}" class=" flex gap-10 py-4" method="POST" enctype="multipart/form-data">
     @csrf
    <div class="flex flex-col gap-4 shadow-md p-4 rounded-md w-full ">
     <h1 class="text-2xl font-semibold text-slate-600">
-    Service Information:</h1>
+    News Information:</h1>
       {{-- title --}}
       <div class="flex flex-col">
-      <label for="service_title">Service Title:</label> 
-      <input type="text" id="service_title" name="title" class="border border-slate-300 rounded-sm p-2" placeholder="Enter Service Title" value='{{$service->title}}'>
+      <label for="news_title">News Title:</label> 
+      <input type="text" id="news_title" name="title" class="border border-slate-300 rounded-sm p-2" placeholder="Enter News Title" value='{{$news->title}}'>
       </div>
       {{-- description --}}
       <div class="flex flex-col">
-        <label for="service_description">Service Description:</label> 
-        <textarea id="service_description" name="description" class="border border-slate-300 rounded-sm min-h-[200px] p-3"
-        placeholder="Enter the service description here...."
-        >{{$service->description}}</textarea> 
+        <label for="news_description">News Description:</label> 
+        <textarea id="news_description" name="description" class="border border-slate-300 rounded-sm min-h-[200px] p-3"
+        placeholder="Enter the news description here...."
+        >{{$news->description}}</textarea> 
       </div>
     <button type="submit" class="btn w-max bg-slate-800 text-white hover:bg-slate-800/90">Submit</button>
     </div> 
     {{-- image --}}
     <div class="space-y-2 shadow-md p-4 rounded-md h-[400px]">
-      <label for="image-upload" class="font-semibold">Select Service Image:</label>
+      <label for="image-upload" class="font-semibold">Select News Image:</label>
     <div class="mb-3 text-center h-[300px] max-w-[300px] border mx-auto">
-        <img id="image_preview" src="{{ asset('images/services/'.$service->image) }}" alt="No Image Available" class="w-[300px] h-[300px] object-cover" >
+        <img id="image_preview" src="{{ asset('images/news/'.$news->image) }}" alt="No Image Available" class="w-[300px] h-[300px] object-cover" >
     </div>
       <input type="file" id="image-upload"  accept="image/*" onchange="previewImage(event)" name="image">
-      <input type="hidden" value="{{$service->id}}" name="id">
+      <input type="hidden" value="{{$news->id}}" name="id">
     </div>
   </form>  
 </div>

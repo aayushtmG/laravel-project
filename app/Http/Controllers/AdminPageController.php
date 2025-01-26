@@ -53,7 +53,18 @@ class AdminPageController extends Controller
 public function settingsUpdate(Request $request)
 {
     $settings = Setting::find(1);
-
+    dd($request->sider_images);
+    if ($request->hasFile('slider_images')) {
+        $images = array();
+        foreach ($request->file('slider_images') as $file) {
+            $extension = $file->getClientOriginalExtension();
+            $name = explode('.',$file->getClientOriginalName())[0];
+            $filename = $name  . '.' . $extension;
+            $file->move(public_path('/images/settings/sliders'), $filename);
+            $images[]= $filename;
+        }
+        dd($images);
+    }
     // Handle logo image upload
     if ($request->hasFile('logo_image')) {
         // Delete the old logo file if it exists

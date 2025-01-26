@@ -51,38 +51,33 @@ class NewsController extends Controller
         return redirect()->route('admin.news.show');
     }
     public function getEditNews($id){
-        $member = News::findOrFail($id);
-        return view('admin.news.edit',compact('member'));
+        $news = News::findOrFail($id);
+        return view('admin.news.edit',compact('news'));
     }
     public function postEditNews(Request $request){
         $id = $request->id;
-        $member = News::find($id);
+        $news = News::find($id);
         $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:news,email,'.$id,
-            'contact' => 'required|min:8',
-            'position' => 'required',
-            'department'=> 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required',
         ]);
         if($request->hasFile('image')){
-            $previousImage = $member->image;
-            $previousFilepath = public_path('images/teams/'.$member->department.$previousImage);
+            $previousImage = $news->image;
+            $previousFilepath = public_path('images/news/'.$previousImage);
             if(file_exists($previousFilepath)){
                 unlink($previousFilepath);
             }
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
-            $filename = str_replace(' ','_',$request->name).'.'.$extension;
-            $file->move(public_path('/images/teams/'.$member->department),$filename);
-            $member->image = $filename;
+            $filename = str_replace(' ','_',$request->title).'.'.$extension;
+            $file->move(public_path('/images/news/'),$filename);
+            $news->image = $filename;
         }
-        $member->update([
-        'name'=> $request->input('name'),
-        'position' => $request->input('position'),
-        'email'=> $request->input('email'),
-        'contact'=>$request->input('contact'),
-        'department'=>$request->input('department'),
-        'image'=>$member->image
+        $news->update([
+            'title' => $news->title,
+            'description' => $news->description,
+                'image'=>$news->image
         ]);
         return redirect()->route('admin.news.show');
 
