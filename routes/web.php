@@ -27,7 +27,7 @@ Route::get('/language-switch',[LanguageController::class,'languageSwitch'])->nam
 Route::get('/team',[MemberController::class,'show'])->name('team');
 Route::get('/messages',[MessageController::class,'show'])->name('messages');
 Route::get('/contact',function(){return view('contact');});
-Route::get('/about',[AboutController::class,'index'])->route('about');
+Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/news-events',[NewsEventsController::class,'show'])->name('news-events');
 Route::get('/notices',[NoticeController::class,'index'])->name('notices');
 Route::get('/notices/{id}',[NoticeController::class,'show'])->name('notices.show');
@@ -102,3 +102,7 @@ Route::post('/admin/messages/delete',[MessageController::class,'deleteMessage'])
 Route::get('/admin/sliders',[SliderController::class,'index'])->name('sliders.get');
 Route::post('/admin/sliders/delete',[SliderController::class,'deleteSlider'])->name('sliders.delete');
 Route::post('/admin/sliders',[SliderController::class,'postSlider'])->name('sliders.create');
+
+//about
+Route::get('/admin/about',[AboutController::class,'adminShow'])->name('admin.about.get');
+Route::post('/admin/about/',[AboutController::class,'adminPost'])->name('admin.about.post');

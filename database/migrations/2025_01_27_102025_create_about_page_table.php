@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('about_page', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->text('heading');
+            $table->string('image');
+            $table->longText('description');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timeStamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
