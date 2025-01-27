@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('title','Home')
 @section('content')
-  @include('components.main-carousel')
+  {{-- @include('components.main-carousel') --}}
+  <x-main-carousel-slide />
   @include('components.main-services')
   <!-- Modal -->
   <div x-show='showModal' x-data='{showModal : true,currentNoticeIndex:0,notices: @json($notices)}' class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" @click='showModal=false'>

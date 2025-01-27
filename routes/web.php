@@ -16,6 +16,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\NewsController; 
 use App\Http\Controllers\MessageController; 
 use App\Http\Controllers\NewsEventsController; 
+use App\Http\Controllers\SliderController; 
+use App\Http\Controllers\AboutController; 
+use Illuminate\Http\Request;
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
@@ -24,14 +27,13 @@ Route::get('/language-switch',[LanguageController::class,'languageSwitch'])->nam
 Route::get('/team',[MemberController::class,'show'])->name('team');
 Route::get('/messages',[MessageController::class,'show'])->name('messages');
 Route::get('/contact',function(){return view('contact');});
-Route::get('/about',function(){return view('about');});
+Route::get('/about',[AboutController::class,'index'])->route('about');
 Route::get('/news-events',[NewsEventsController::class,'show'])->name('news-events');
 Route::get('/notices',[NoticeController::class,'index'])->name('notices');
 Route::get('/notices/{id}',[NoticeController::class,'show'])->name('notices.show');
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
 Route::get('/news/{id}',[NewsController::class,'show'])->name('news.show');
 Route::get('/event/{id}',[EventController::class,'show'])->name('event.show');
-
 
 
 //ADMIN SECTION---------------------------------------------
@@ -94,3 +96,9 @@ Route::post('/admin/messages/create',[MessageController::class,'postAddMessage']
 Route::get('/admin/messages/edit/{id}',[MessageController::class,'getEditMessage'])->name('admin.messages.get.edit');
 Route::post('/admin/messages/edit',[MessageController::class,'postEditMessage'])->name('messages.edit');
 Route::post('/admin/messages/delete',[MessageController::class,'deleteMessage'])->name('messages.delete');
+
+
+//sliders
+Route::get('/admin/sliders',[SliderController::class,'index'])->name('sliders.get');
+Route::post('/admin/sliders/delete',[SliderController::class,'deleteSlider'])->name('sliders.delete');
+Route::post('/admin/sliders',[SliderController::class,'postSlider'])->name('sliders.create');

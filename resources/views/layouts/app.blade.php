@@ -55,6 +55,7 @@
           <span><i class="fa-solid fa-envelope bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>{{$settings->company_email}}</p>
         </div>
       </div>
+      <img src="{{asset('/images/animated-flag.gif')}}" class="max-h-[140px] "/>
     </div>
     {{-- @include('components.navbar') --}}
     <x-navbar />

@@ -120,6 +120,13 @@
          </li>
 
          <li class="nav-item ">
+               <a class="nav-link {{ request()->is('admin/sliders') ? 'active' : '' }}" href="{{ route('sliders.get') }}"  onclick="toggleDropdown(event)" >
+                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  Home Page Sliders
+               </a>
+         </li>
+
+         <li class="nav-item ">
                <a class="nav-link {{ request()->is('admin/settings') ? 'active' : '' }}" href="{{ url('admin/settings') }}"  onclick="toggleDropdown(event)" >
                   <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
                   General Settings

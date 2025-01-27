@@ -1,4 +1,5 @@
-@extends('layouts.admin') @section('content')
+@extends('layouts.admin')
+ @section('content')
 <div class="container mx-auto px-20  my-8 flex flex-col">
   {{-- header --}}
   <div class="flex justify-between items-center">

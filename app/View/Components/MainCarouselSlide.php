@@ -5,17 +5,16 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Service;
-use App\Models\News;
+use App\Models\Slider;
 
-class Navbar extends Component
+class MainCarouselSlide extends Component
 {
-    public $services;
-    public $news;
+    public array $images;
     public function __construct()
-    {
-        $this->services =  Service::all();
-        $this->news = News::latest()->get();
+    { 
+    $this->images = Slider::all()->map(function ($slider) {
+            return asset('images/sliders/' . $slider->image);
+        })->toArray();
     }
 
     /**
@@ -23,6 +22,6 @@ class Navbar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.navbar');
+        return view('components.main-carousel-slide');
     }
 }

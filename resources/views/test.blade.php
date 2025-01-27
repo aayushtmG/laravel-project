@@ -1,12 +1,22 @@
 @extends('layouts.admin')
 @section('content')
    <h1>Upload Multiple Images</h1>
+   <div class="flex gap-4 ">
+    @foreach ($images as $item)
+      <form action="{{route('delete.image')}}" method="POST" class="border border-red-500">
+        @csrf
+        <input type="hidden" value="{{$item->id}}" name="id">
+        <img src="{{asset('/images/sliders/'.$item->image)}}" class="w-50 h-52"/> 
+        <button type="submit">Delete {{$item->id}}</button> 
+      </form>
+    @endforeach
+   </div>
    <form id="image-upload-form" action="{{route('test')}}" method="POST" enctype="multipart/form-data">
       @csrf
       <label for="image-upload">Select Images:</label>
       <input type="file" id="image-upload" multiple accept="image/*" name="images[]">
       <div class="image-preview-container" id="preview-container"></div>
-      <button type="submit">submit</button>
+      <button type="submit" class="btn">submit</button>
    </form>
 @endsection
 @section('scripts')

@@ -9,6 +9,7 @@ use App\Models\News;
 use App\Models\Event;
 use App\Models\Notice;
 use App\Models\Setting;
+use App\Models\Slider;
 
 class AdminPageController extends Controller
 {
@@ -17,8 +18,8 @@ class AdminPageController extends Controller
         $lists =collect([
             [
                 'title'=> 'Home Page Sliders',
-                'quantity'=> '5',
-                'link'=>'/admin'
+                'quantity'=> Slider::count(),
+                'link'=>'/admin/sliders'
             ],
             [
                 'title'=> 'Members',
@@ -48,23 +49,12 @@ class AdminPageController extends Controller
     }
     public function settings(){
         $settings = Setting::find(1);
-        return view('admin/settings',compact('settings'));
+        $slider_images = Slider::all();
+        return view('admin/settings',compact('settings','slider_images'));
     }
 public function settingsUpdate(Request $request)
 {
     $settings = Setting::find(1);
-    dd($request->sider_images);
-    if ($request->hasFile('slider_images')) {
-        $images = array();
-        foreach ($request->file('slider_images') as $file) {
-            $extension = $file->getClientOriginalExtension();
-            $name = explode('.',$file->getClientOriginalName())[0];
-            $filename = $name  . '.' . $extension;
-            $file->move(public_path('/images/settings/sliders'), $filename);
-            $images[]= $filename;
-        }
-        dd($images);
-    }
     // Handle logo image upload
     if ($request->hasFile('logo_image')) {
         // Delete the old logo file if it exists
@@ -91,22 +81,7 @@ public function settingsUpdate(Request $request)
         $file->move(public_path('/images/settings/'), $filename);
         // Update the logo and home_slider_images columns with the new file name
         $settings->banner_image = $filename;
-        $settings->home_slider_images = json_encode([$filename]);
     }
-    // if ($request->hasFile('home_slider_images')) {
-    //     // Delete the old logo file if it exists
-    //     if ($settings->home_slider_images && file_exists(public_path('/images/settings/sliders/' . $settings->home_slider_images))) {
-    //         unlink(public_path('/images/settings/' . $settings->logo));
-    //     }
-    //     // Upload the new logo file
-    //     $file = $request->file('logo_image');
-    //     $extension = $file->getClientOriginalExtension();
-    //     $filename = 'logo' . '.' . $extension;
-    //     $file->move(public_path('/images/settings/'), $filename);
-    //     // Update the logo and home_slider_images columns with the new file name
-    //     $settings->home_slider_images = json_encode([$filename]);
-    // }
-
     // Update other fields
     $settings->update([
         'banner_image' => $settings->banner_image,

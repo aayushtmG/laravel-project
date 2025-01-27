@@ -46,9 +46,16 @@
 @if(Route::is('home'))
     <div class="hidden md:flex items-center  bg-white">
         <h1 class="bg-blue-500 px-6 py-2 font-bold skewed-border ">{{__('nav.news')}}</h1>
-        <marquee >
+        {{-- <marquee >
         <a href="/news/{{$latestNews['id']}}" class="text-blue-800 text-base">{{$latestNews['title']}}</a>
-        </marquee>
+        </marquee> --}}
+<marquee >
+    @foreach($news as $singleNews)
+        <a href="/news/{{ $singleNews->id }}" class="text-blue-800 text-base mr-[70%]">
+            {{ $singleNews->title }}
+        </a>
+    @endforeach
+</marquee>
     </div>                        
 @endif 
             </div>
