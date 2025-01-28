@@ -23,7 +23,7 @@
       {{-- description --}}
       <div class="flex flex-col">
         <label for="about_description">About Page Description:</label> 
-        <textarea id="about_description" name="description" class="border border-slate-300 rounded-sm min-h-[200px] p-3"
+        <textarea id="about_description" name="description" class="border border-slate-300 rounded-sm min-h-[300px] p-3"
         placeholder="Enter the about description here...."
         >{{$page->description}}</textarea> 
       @if($errors->has('description'))

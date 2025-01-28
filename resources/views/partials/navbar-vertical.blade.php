@@ -119,6 +119,21 @@
                </div>
          </li>
 
+
+         <li class="nav-item ">
+               <a class="nav-link"  onclick="toggleDropdown(event)" >
+                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  Pages
+               </a>
+               <div id="navPages" class="collapse">
+                  <ul class="nav flex-col">
+                        <li class="nav-item">
+                           <a class="nav-link {{ request()->is('admin/about') ? 'active' : '' }}" href="{{ url('admin/about') }}">About Page</a>
+                        </li>
+                  </ul>
+               </div>
+         </li>
+
          <li class="nav-item ">
                <a class="nav-link {{ request()->is('admin/sliders') ? 'active' : '' }}" href="{{ route('sliders.get') }}"  onclick="toggleDropdown(event)" >
                   <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>

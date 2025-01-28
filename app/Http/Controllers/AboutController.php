@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AboutPage;
+use App\Models\Setting;
 
 class AboutController extends Controller
 {
 
     public function  index(){
-        return view('about');
+        $page =  AboutPage::first();
+        return view('about',compact('page'));
     }
     public function adminShow(){
         $page = AboutPage::first();
