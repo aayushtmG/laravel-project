@@ -85,8 +85,10 @@ public function settingsUpdate(Request $request)
     // Update other fields
     $settings->update([
         'banner_image' => $settings->banner_image,
+        'logo_image' => $settings->logo_image,
         'toll_free_number' => $request->toll_free_number,
         'company_email' => $request->company_email,
+        'company_introduction' => $request->company_introduction,
         'address' => $request->address,
         'organization_members' => $request->organization_members,
         'organization_staffs' => $request->organization_staffs,

@@ -46,20 +46,30 @@
       @endif
       </div>
 
-      {{-- number --}}
-      <div class="flex flex-col">
-      <label for="toll_free_number" class="admin-header">Toll free number:</label> 
-      <input type="text" id="toll_free_number" name="toll_free_number" class="border border-slate-300 rounded-sm p-2" placeholder="Enter toll free number" value="{{$settings->toll_free_number}}">
-      @if($errors->has('toll_free_number'))
-      <div class="text-sm text-red-500 mt-1">*{{$errors->first('toll_free_number')}}</div> 
-      @endif
-      </div>
       {{-- email --}}
       <div class="flex flex-col">
       <label for="company_email" class="admin-header">Company Email:</label> 
       <input type="text" id="company_email" name="company_email" class="border border-slate-300 rounded-sm p-2" placeholder="Enter Company Email" value="{{$settings->company_email}}">
       @if($errors->has('company_email'))
       <div class="text-sm text-red-500 mt-1">*{{$errors->first('company_email')}}</div> 
+      @endif
+      </div>
+
+      {{-- introduction --}}
+      <div class="flex flex-col">
+      <label for="company_introduction" class="admin-header">Company Introduction:</label> 
+      <textarea  id="company_introduction" name="company_introduction" class="border border-slate-300 rounded-sm p-2 min-h-[200px]" placeholder="Enter Company Introduction">{{$settings->company_introduction}}</textarea>
+      @if($errors->has('company_introduction'))
+      <div class="text-sm text-red-500 mt-1">*{{$errors->first('company_introduction')}}</div> 
+      @endif
+      </div>
+
+      {{-- number --}}
+      <div class="flex flex-col">
+      <label for="toll_free_number" class="admin-header">Toll free number:</label> 
+      <input type="text" id="toll_free_number" name="toll_free_number" class="border border-slate-300 rounded-sm p-2" placeholder="Enter toll free number" value="{{$settings->toll_free_number}}">
+      @if($errors->has('toll_free_number'))
+      <div class="text-sm text-red-500 mt-1">*{{$errors->first('toll_free_number')}}</div> 
       @endif
       </div>
 

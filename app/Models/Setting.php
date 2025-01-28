@@ -14,6 +14,7 @@ class Setting extends Model
         'address',
         'company_email',
         'company_name',
+        'company_introduction',
         'home_slider_images',
         'organization_members',
         'organization_staffs',

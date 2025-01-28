@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('toll_free_number');
             $table->string('company_email');
             $table->string('company_name');
+            $table->longText('company_introduction')->nullable();
             $table->string('address');
             $table->json('home_slider_images')->nullable();
             $table->string('organization_members');
