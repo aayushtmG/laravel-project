@@ -1,14 +1,14 @@
-  <div x-data="carousel_main" x-init="" class="relative overflow-hidden  h-min lg:h-[80vh] ">
+  <div x-data="carousel_main" x-init="start" class="relative overflow-hidden  h-min lg:h-[80vh] ">
         <!-- Images -->
         <div 
             class="flex transition-transform duration-700 ease-in-out w-full h-full " 
             :style="`transform: translateX(-${currentIndex * 100}%)`"
         >
-            <template x-for="(image, index) in images" :key="index">
-            <div class="w-full h-full flex-shrink-0  ">
+            <template x-for="(image, index) in images" :key="index" >
+            <div class="w-full min-h-full flex-shrink-0  ">
                 <img 
                     :src="image" 
-                    class="object-cover w-full  lg:h-full" 
+                    class="object-cover w-full h-full" 
                     alt="Carousel Image"
                 >
             </div>

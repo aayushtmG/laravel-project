@@ -18,6 +18,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsEventsController; 
 use App\Http\Controllers\SliderController; 
 use App\Http\Controllers\AboutController; 
+use App\Http\Controllers\GalleryController; 
 use Illuminate\Http\Request;
 
 
@@ -34,6 +35,7 @@ Route::get('/notices/{id}',[NoticeController::class,'show'])->name('notices.show
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
 Route::get('/news/{id}',[NewsController::class,'show'])->name('news.show');
 Route::get('/event/{id}',[EventController::class,'show'])->name('event.show');
+Route::get('/album/{id}',[GalleryController::class,'show'])->name('gallery.get');
 
 
 //ADMIN SECTION---------------------------------------------
@@ -105,4 +107,13 @@ Route::post('/admin/sliders',[SliderController::class,'postSlider'])->name('slid
 
 //about
 Route::get('/admin/about',[AboutController::class,'adminShow'])->name('admin.about.get');
-Route::post('/admin/about/',[AboutController::class,'adminPost'])->name('admin.about.post');
+Route::post('/admin/about',[AboutController::class,'adminPost'])->name('admin.about.post');
+
+
+//gallery
+Route::get('/admin/gallery',[GalleryController::class,'adminShow'])->name('admin.gallery.get');
+Route::get('/admin/gallery/create',[GalleryController::class,'create'])->name('admin.gallery.create');
+Route::post('/admin/gallery/create',[GalleryController::class,'post'])->name('admin.gallery.post');
+Route::get('/admin/messages/edit/{id}',[GallertyController::class,'getEditGallery'])->name('admin.gallery.get.edit');
+Route::post('/admin/gallery/edit',[GalleryController::class,'postEditGallery'])->name('gallery.edit');
+Route::post('/admin/gallery/delete',[GalleryController::class,'delete'])->name('admin.gallery.delete');

@@ -20,7 +20,7 @@
          <!-- nav item -->
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-handshake-simple w-4 h-4 mr-2"></i>
                   Services
                </a>
                <div id="navPages" class="collapse">
@@ -37,7 +37,7 @@
 
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-users w-4 h-4 mr-2"></i>
                   Members
                </a>
                <div id="navPages" class="collapse">
@@ -54,7 +54,7 @@
 
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-newspaper w-4 h-4 mr-2"></i>
                   News
                </a>
                <div id="navPages" class="collapse">
@@ -70,7 +70,7 @@
          </li>
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-calendar-days w-4 h-4 mr-2"></i>
                   Events
                </a>
                <div id="navPages" class="collapse">
@@ -87,7 +87,7 @@
 
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-bullhorn w-4 h-4 mr-2"></i>
                   Notices
                </a>
                <div id="navPages" class="collapse">
@@ -104,7 +104,7 @@
 
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-comments w-4 h-4 mr-2"></i>
                   Messages
                </a>
                <div id="navPages" class="collapse">
@@ -122,7 +122,7 @@
 
          <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-pager w-4 h-4 mr-2"></i>
                   Pages
                </a>
                <div id="navPages" class="collapse">
@@ -136,14 +136,20 @@
 
          <li class="nav-item ">
                <a class="nav-link {{ request()->is('admin/sliders') ? 'active' : '' }}" href="{{ route('sliders.get') }}"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-panorama w-4 h-4 mr-2"></i>
                   Home Page Sliders
+               </a>
+         </li>
+         <li class="nav-item ">
+               <a class="nav-link {{ request()->is('admin/gallery') ? 'active' : '' }}" href="{{ route('admin.gallery.get') }}"  onclick="toggleDropdown(event)" >
+                  <i  class="fa-solid fa-images w-4 h-4 mr-2"></i>
+                  Gallery
                </a>
          </li>
 
          <li class="nav-item ">
                <a class="nav-link {{ request()->is('admin/settings') ? 'active' : '' }}" href="{{ url('admin/settings') }}"  onclick="toggleDropdown(event)" >
-                  <i  class="fa-solid fa-pen w-4 h-4 mr-2"></i>
+                  <i  class="fa-solid fa-gear w-4 h-4 mr-2"></i>
                   General Settings
                </a>
          </li>

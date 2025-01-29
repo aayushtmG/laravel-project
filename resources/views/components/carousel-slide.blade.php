@@ -9,7 +9,7 @@
             <div class="w-full h-full flex-shrink-0 ">
                 <img 
                     :src="image" 
-                    class="object-cover w-screen  lg:h-full" 
+                    class=" w-screen object-fill h-full" 
                     alt="Carousel Image"
                 >
             </div>

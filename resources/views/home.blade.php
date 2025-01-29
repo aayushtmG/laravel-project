@@ -48,9 +48,9 @@
       <x-product-services />
 </section>
       {{-- our gallery --}}
-      <section class="container mx-auto">
+      <section class="container mx-auto overflow-auto">
           <h1 class="section-header text-2xl lg:text-4xl container mx-auto">Our Gallery</h1>
-          <x-carousel-slide :images="['/images/banner-1.jpg','/images/banner.jpg','/images/banner-2.jpg']"/>
+          <x-gallery />
       </section>
       {{-- news & events section --}}
       <section class="bg-gray-100/50 ">

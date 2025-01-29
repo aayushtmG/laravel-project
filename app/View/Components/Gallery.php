@@ -5,15 +5,14 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Album;
 
 class Gallery extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+    public $albums;
     public function __construct()
     {
-        //
+        $this->albums = Album::all();
     }
 
     /**
