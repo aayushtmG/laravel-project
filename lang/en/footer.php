@@ -20,12 +20,12 @@ return [
     'reports' => 'Reports',
     'downloads' => 'Downloads',
     'gallery'=>'Gallery',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
+    'home'=>'Home',
+    'aboutus'=>'AboutUs',
+    'our'=>'Our',
+    'contactus'=>'ContactUs',
+    'latest'=>'Latest',
+    'news'=>'News',
 
 
 
