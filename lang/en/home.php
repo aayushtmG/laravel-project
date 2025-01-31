@@ -1,6 +1,5 @@
 <?php
 return [
-   '365' => '365',
    'banking' => 'Banking',
    'service' => 'Service',
    'services' => 'Services',
@@ -34,6 +33,8 @@ return [
    'news' => 'News',
    'events' => 'Events',
    'congratulation' => 'Congratulation',
+   'viewall' => 'View all',
+   'this may help you' => 'This may help you',
    '' => '',
    '' => '',
    '' => '',

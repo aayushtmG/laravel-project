@@ -1,11 +1,25 @@
 <?php
 return [
     'home' => 'Home',
-    'team' => 'Team',
+    'products' => 'Products',
     'about_us' => 'About Us',
-    'contact_us' => 'Contact Us',
+    'contact' => 'Contact',
+    'message'=>'Message',
     'services'=>'Services',
-    'messages'=>'Messages',
-    'news'=>'News'
+    'team'=>'Team',
+    'news'=>'News',
+    'will_appear'=>'will appear',
+    'here'=>'here',
+    'toll'=>'Toll',
+    'free'=>'free',
+
+    'our'=> 'our',
+    'location'=> 'Location',
+    'download'=>'Download',
+    'forms'=>'Forms',
+    'careers'=>'Careers',
+    'login'=>'Login',
+
 ];
+
 ?>
