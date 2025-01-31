@@ -31,7 +31,7 @@
                         {{$item->name}}
                       </td>
                       <td class="px-4 py-3 font-semibold">
-                        <img src="/images/album/{{$item->name}}/{{$item->thumbnail_image}}"
+                        <img src="/images/albums/{{$item->name}}/{{$item->thumbnail_image}}"
                         class="max-w-[150px]"/>
                       </td>
                       <td class="px-4 py-3 text-sm">

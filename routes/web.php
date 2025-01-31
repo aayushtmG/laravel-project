@@ -35,6 +35,7 @@ Route::get('/notices/{id}',[NoticeController::class,'show'])->name('notices.show
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
 Route::get('/news/{id}',[NewsController::class,'show'])->name('news.show');
 Route::get('/event/{id}',[EventController::class,'show'])->name('event.show');
+Route::get('/album',[GalleryController::class,'index'])->name('gallery.all');
 Route::get('/album/{id}',[GalleryController::class,'show'])->name('gallery.get');
 
 

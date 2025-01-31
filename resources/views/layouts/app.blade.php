@@ -11,6 +11,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./app.css">
       <link rel="icon" type="image/x-icon" href="/images/settings/{{$settings->logo}}">
+      @yield('head')
 
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -25,6 +26,7 @@
           font-size:1.4rem;
           }
           </style>
+            @yield('style')
     </head>
     <body >
   <header class="relative">
@@ -64,5 +66,6 @@
     </body>
     {{-- footer --}}
     <x-footer/>
+    @yield('script')
+  <script src="//unpkg.com/alpinejs" defer></script>
 </html>
-<script src="//unpkg.com/alpinejs" defer></script>

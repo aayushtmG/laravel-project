@@ -2,7 +2,7 @@
 @foreach($albums as $album)
 <a href="{{route('gallery.get',['id'=>$album->id])}}">
 <div class="h-[300px] min-w-[250px] lg:min-w-[300px]  border rounded-xl overflow-hidden p-4 relative cursor-pointer group services-group">
-<img src="{{ asset('images/album/' . $album->name . '/' . $album->thumbnail_image) }}" 
+<img src="{{ asset('images/albums/' . $album->name . '/' . $album->thumbnail_image) }}" 
      alt="thumbnail image"
      class="absolute inset-0 -z-10 h-full w-full object-cover group-hover:scale-110 transition-transform duration-500">
 

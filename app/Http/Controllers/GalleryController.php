@@ -8,10 +8,20 @@ use App\Models\Image;
 
 class GalleryController extends Controller
 {
-    public function show($id){
-        //returns all images of the album
-        return view('admin.gallery.show',compact('albums'));
+    // All albums
+    public function index(){
+        $albums = Album::all();
+        return view('gallery.show',compact('albums'));
     }
+
+    //images of one album
+    public function show($id){
+        $album = Album::where('id',$id)->first();
+        $title = 'Album | '. $album->name;
+        $images = Image::where('album_id',$id)->get();
+        return view('gallery.show',compact('images','album','title'));
+    }
+
     public function adminShow(){
         $albums = Album::all();
         return view('admin.gallery.show',compact('albums'));
@@ -23,8 +33,8 @@ class GalleryController extends Controller
         if($request->hasFile('thumbnail_image')){
             $file = $request->file('thumbnail_image');
             $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move(public_path('/images/album/'.$request->album_name),$filename);
+            $filename = "thumbnail_image".'.'.$extension;
+            $file->move(public_path('/images/albums/'.$request->album_name),$filename);
             $album = Album::create([
                 'thumbnail_image' => $filename,
                 'name'=> $request->album_name
@@ -33,9 +43,8 @@ class GalleryController extends Controller
         if($request->hasFile('images')){
             foreach($request->images as $image){
                 // $extension = $image->getOriginalClientExtension(); 
-                
                 $filename = time() . '_' . $image->getClientOriginalName();
-                $image->move(public_path('/images/album/{{$album->name}}/images'),$filename);
+                $image->move(public_path('/images/albums/'.$album->name.'/images'),$filename);
                 Image::create([
                     'album_id' => $album->id,
                     'image_path'=> $filename,
