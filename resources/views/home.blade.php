@@ -27,9 +27,7 @@
       <section class="bg-gray-100/50 p-12 container mx-auto rounded-md">
         <div class="flex flex-col gap-10 lg:flex-row  max-w-screen-xl mx-auto">
           <div>
-            <h1 class="section-header text-2xl lg:text-4xl">Introduction</h1>
-            {{-- <p class="text-justify my-2 mt-4">Bhargo Movement Nepal is a community, group and member based co-operative model microfinance institution established on April 03, 1996, registered under Co-Operative Act. 2058. It is situated at Birtamod Municipality Ward NO: 2 of Jhapa District in Eastern Development Region of Nepal. It is dedicated to the social and economic development of the local community by reducing the poverty. It is providing co-operative microfinance services to the members. It is also involving in a variety of social development programs, such as livelihoods, health & environment, and community empowerment. It strives to raise awareness among the poverty-stricken and the downtrodden as well as to establish sustainable development to guarantee basic necessities and achieve self-sufficiency, thus creating a legitimate society. </p>  --}}
-
+            <h1 class="section-header text-2xl lg:text-4xl">{{__('home.introduction')}}</h1>
             <p class="text-justify my-2 mt-4" style="white-space: pre-wrap">{{$settings->company_introduction}}</p> 
           </div>
           <div class="w-ful flex flex-col justify-center items-center">
@@ -44,7 +42,7 @@
       </section>
       @include('components.organization-profile')
 <section class="px-4 container mx-auto">
-  <h1 class="section-header text-2xl lg:text-4xl">Products & Services</h1>
+  <h1 class="section-header text-2xl lg:text-4xl">{{__('home.products')}} & {{__('home.services')}}</h1>
       <x-product-services />
 </section>
       {{-- our gallery --}}
