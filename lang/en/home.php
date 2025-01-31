@@ -1,5 +1,6 @@
 <?php
 return [
+
    'banking' => 'Banking',
    'service' => 'Service',
    'services' => 'Services',
@@ -35,6 +36,16 @@ return [
    'congratulation' => 'Congratulation',
    'viewall' => 'View all',
    'this may help you' => 'This may help you',
+   '1' => '1',
+    '2' => '2',
+    '3' => '3',
+    '4' => '4',
+    '5' => '5',
+    '6' => '6',
+    '7' => '7',
+    '8' => '8',
+    '9' => '9',
+    '0' => '0',   
    '' => '',
    '' => '',
    '' => '',
