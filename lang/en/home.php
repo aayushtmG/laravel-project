@@ -3,7 +3,6 @@ return [
    'banking' => 'Banking',
    'service' => 'Service',
    'services' => 'Services',
-   'sms' => 'SMS',
    'free' => 'Free',
    'mobile' => 'Mobile',
    'debit' => 'Debit',
