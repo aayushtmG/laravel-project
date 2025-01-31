@@ -31,6 +31,7 @@ return [
    'interprise' => 'अन्तरक्रिया',
    'our' => 'हाम्रो ',
    'gallery' => 'ग्यालरी',
+   'new'='नयाँ'
    'news' => 'समाचार ',
    'events' => 'कार्यक्रम ',
    'congratulation' => 'बधाई',
