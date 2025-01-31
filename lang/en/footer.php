@@ -26,9 +26,8 @@ return [
     'contactus'=>'ContactUs',
     'latest'=>'Latest',
     'news'=>'News',
-
-
-
+    'openinghour'=>"08:00",
+    'closinghour'=>"05:00"
 
 
 
