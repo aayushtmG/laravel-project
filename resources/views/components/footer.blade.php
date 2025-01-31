@@ -14,8 +14,8 @@
         <div class="footer-list-container">
           <h3 class="footer-header">{{__('footer.office hour')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
-            <li><i class="fa fa-calendar" aria-hidden="true"></i>Monday to Sunday</li>
-            <li><i class="fa fa-clock" aria-hidden="true"></i>08:00 AM to 5:00 PM</li>
+            <li><i class="fa fa-calendar" aria-hidden="true"></i>{{__('footer.monday')}} to {{__('footer.sunday')}}</li>
+            <li><i class="fa fa-clock" aria-hidden="true"></i>{{__('footer.openinghour')}}  {{__('footer.am')}} {{__('footer.to')}} {{__('footer.closinghour')}} {{__('footer.pm')}}</li>
             {{-- social links --}}
             <ul class="flex ">
               <li><a href="/" ><i class="fa-brands fa-square-facebook text-3xl hover:text-blue-400 transition-colors " ></i></a></li>
@@ -27,16 +27,16 @@
         <div class="footer-list-container">
           <h3 class="footer-header">Useful Links</h3>
           <ul class="footer-list flex flex-col gap-1">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About Us</a></li>
-            <li> <a href="/">Our Services</a></li>
-            <li><a href="/">Contact Us</a></li>
-            <li><a href="/">Latest News</a></li>
+            <li><a href="/">{{__('footer.home')}}</a></li>
+            <li><a href="/">{{__('footer.aboutus')}}</a></li>
+            <li> <a href="/">{{__('footer.our')}} {{__('footer.services')}}</a></li>
+            <li><a href="/">{{__('footer.contactus')}}</a></li>
+            <li><a href="/">{{__('footer.latest')}} {{__('footer.news')}}</a></li>
           </ul>
         </div> 
         {{--  --}}
         <div class="footer-list-container">
-          <h3 class="footer-header">Services</h3>
+          <h3 class="footer-header">{{__('footer.services')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
             @foreach ($services as $service)
             <li><a href="/">{{$service->title}}</a></li>
@@ -45,19 +45,19 @@
         </div> 
 {{--  --}}
         <div class="footer-list-container">
-          <h3 class="footer-header">Others</h3>
+          <h3 class="footer-header">{{__('footer.others')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
-            <li><a href="/">Notices</a></li>
-            <li><a href="/">Reports</a></li>
-            <li><a href="/">Downloads</a></li>
-            <li><a href="/">Gallery</a></li>
+            <li><a href="/">{{__('footer.notices')}}</a></li>
+            <li><a href="/">{{__('footer.reports')}}</a></li>
+            <li><a href="/">{{__('footer.downloads')}}</a></li>
+            <li><a href="/">{{__('footer.gallery')}}</a></li>
           </ul>
         </div> 
         {{--  --}}
         <div class="footer-list-container">
-          <h3 class="footer-header">Explore</h3>
+          <h3 class="footer-header">{{__('footer.explore')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
-            <li><a href="/">Branches</a></li>
+            <li><a href="/">{{__('footer.branches')}}</a></li>
             <li><a href="/">ATM Locations</a></li>
           </ul>
         </div>
