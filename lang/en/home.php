@@ -1,6 +1,5 @@
 <?php
 return [
-
    'banking' => 'Banking',
    'service' => 'Service',
    'services' => 'Services',
@@ -10,7 +9,7 @@ return [
    'debit' => 'Debit',
    'card' => 'Card',
    'introduction' => 'Introduction',
-   'orginazation' => 'Orginazation',
+   'organization' => 'Organization',
    'profile' => 'Profile',
    'members' => 'Members',
    'staff' => 'Staff',
@@ -46,13 +45,6 @@ return [
     '8' => '8',
     '9' => '9',
     '0' => '0',   
-   '' => '',
-   '' => '',
-   '' => '',
-   '' => '',
-   '' => '',
-   '' => '',
-   
 ];
 
 ?>

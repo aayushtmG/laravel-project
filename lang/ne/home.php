@@ -10,7 +10,7 @@ return [
    'debit' => 'डेबिट',
    'card' => 'कार्ड',
    'introduction' => 'परिचय',
-   'orginazation' => 'संस्थाको ',
+   'organization' => 'संस्थाको ',
    'profile' => 'प्रोफाइल',
    'members' => 'सदस्य',
    'staff' => 'कर्मचारी',
