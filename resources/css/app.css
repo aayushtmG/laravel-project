@@ -183,7 +183,6 @@ input:focus + label {
   width:100px;
 }
 
-
       .image-preview-container {
          display: flex;
          flex-wrap: wrap;
@@ -194,8 +193,6 @@ input:focus + label {
 
       .image-preview {
          position: relative;
-         width: auto;
-         /* height: 200px; */
          border: 2px solid #ddd;
          border-radius: 5px;
          overflow: hidden;

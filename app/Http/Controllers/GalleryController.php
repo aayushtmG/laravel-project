@@ -56,13 +56,93 @@ class GalleryController extends Controller
         
         return redirect()->route('admin.gallery.get');
     }
-    public function delete(){
+    public function delete(Request $request){
+        $album = Album::find($request->id);
+        $album_path = public_path('images/albums/'.$album->name);
+        if(file_exists($album_path)){
+            $this->deleteDirectory($album_path);
+            $album->delete();
+        }
+
         return redirect()->route('admin.gallery.get');
     }
-    public function getEditGallery(){
-        return redirect()->route('admin.gallery.get');
+    public function getEditGallery($id){
+        $album = Album::find($id);
+        return view('admin.gallery.edit',compact('album')) ;
     }
-    public function postEditGallery(){
-        return redirect()->route('admin.gallery.get');
+public function postEditGallery(Request $request)
+{
+    $album = Album::findOrFail($request->id);
+
+    $previous_album_name =  $album->name;
+
+    // Handle removed images
+    if ($request->has('removed_images')) {
+        foreach ($request->input('removed_images') as $imageId) {
+            $image = Image::find($imageId);
+            if ($image) {
+                // Delete the image file from storage
+                unlink(public_path('/images/albums/' . $previous_album_name . '/images/' . $image->image_path));
+                // Delete the image record from the database
+                $image->delete();
+            }
+        }
     }
+    // Update album name
+    if($request->input('album_name') != $previous_album_name){
+        $oldPath = public_path('/images/albums/' . $previous_album_name );
+        $newPath = public_path('/images/albums/' . $request->input('album_name') );
+        if(file_exists($oldPath)){
+            rename($oldPath, $newPath);
+        }
+        $album->name = $request->input('album_name');
+        $album->save();
+    }
+    // Handle new images
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $file) {
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path('/images/albums/'.$album->name.'/images'),$filename);
+            // Save the image record to the database
+            $album->images()->create([
+                'image_path' => $filename,
+            ]);
+        }
+    }
+        if($request->hasFile('thumbnail_image')){
+            $file = $request->file('thumbnail_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = "thumbnail_image".'.'.$extension;
+        $previousImage = $album->thumbnail_image;
+        $previousFilepath = public_path('images/albums/'.$album->name.'/'.$previousImage);
+        if(file_exists($previousFilepath)){
+                unlink($previousFilepath);
+        }
+            $file->move(public_path('/images/albums/'.$request->album_name),$filename);
+            $album->thumbnail_image = $filename;
+            $album->save();
+        }
+    return redirect()->route('admin.gallery.get')->with('success', 'Album updated successfully.');
+}
+
+    protected function deleteDirectory($dir) {
+        if (!file_exists($dir)) {
+            return true;
+        }
+        if (!is_dir($dir)) {
+            return unlink($dir);
+        }
+        foreach (scandir($dir) as $item) {
+            if ($item == '.' || $item == '..') {
+                continue;
+            }
+            if (!$this->deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+                return false;
+            }
+
+        }
+
+        return rmdir($dir);
+    }
+
 }

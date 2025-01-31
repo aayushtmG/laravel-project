@@ -115,6 +115,6 @@ Route::post('/admin/about',[AboutController::class,'adminPost'])->name('admin.ab
 Route::get('/admin/gallery',[GalleryController::class,'adminShow'])->name('admin.gallery.get');
 Route::get('/admin/gallery/create',[GalleryController::class,'create'])->name('admin.gallery.create');
 Route::post('/admin/gallery/create',[GalleryController::class,'post'])->name('admin.gallery.post');
-Route::get('/admin/messages/edit/{id}',[GallertyController::class,'getEditGallery'])->name('admin.gallery.get.edit');
-Route::post('/admin/gallery/edit',[GalleryController::class,'postEditGallery'])->name('gallery.edit');
+Route::get('/admin/gallery/edit/{id}',[GalleryController::class,'getEditGallery'])->name('admin.gallery.get.edit');
+Route::put('/admin/gallery/edit/',[GalleryController::class,'postEditGallery'])->name('admin.gallery.post.edit');
 Route::post('/admin/gallery/delete',[GalleryController::class,'delete'])->name('admin.gallery.delete');
