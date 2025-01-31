@@ -47,15 +47,15 @@
 </section>
       {{-- our gallery --}}
       <section class="container mx-auto overflow-auto">
-          <h1 class="section-header text-2xl lg:text-4xl container mx-auto">Our Gallery</h1>
+          <h1 class="section-header text-2xl lg:text-4xl container mx-auto"> {{__('home.our')}} {{__('home.gallery')}}</h1>
           <x-gallery />
       </section>
       {{-- news & events section --}}
       <section class="bg-gray-100/50 ">
         <div class="container mx-auto py-12">
           <div class="flex justify-between max-md:items-center items-end ">
-            <h1 class="section-header">News & Events</h1>
-          <a href="{{route('news-events')}}" class="max-md:text-xs text-sm btn hover:bg-slate-800 hover:text-white ">View all</a>
+            <h1 class="section-header">{{__('home.news')}} & {{__('home.events')}}</h1>
+          <a href="{{route('news-events')}}" class="max-md:text-xs text-sm btn hover:bg-slate-800 hover:text-white ">{{__('home.viewall')}}</a>
           </div>
           <x-news-events-tabs />
       </div>
@@ -63,14 +63,14 @@
       {{-- Notice section --}}
       <section class="container mx-auto">
         <div class="flex justify-between  max-md:items-center items-end">
-        <h1 class="section-header">Notice</h1>
-          <a href="{{route('notices')}}" class="max-md:text-xs text-sm btn hover:bg-slate-800 hover:text-white ">View all</a>
+        <h1 class="section-header">{{__('home.notices')}}</h1>
+          <a href="{{route('notices')}}" class="max-md:text-xs text-sm btn hover:bg-slate-800 hover:text-white ">{{__('home.viewall')}}</a>
         </div>
         <x-notices />
       </section>
       {{-- help section --}}
       <section class="container mx-auto">
-        <h1 class="section-header">This may help you</h1>
+        <h1 class="section-header">{{__('home.this may help you')}}</h1>
         <x-services-detail-block /> 
       </section>
 @endsection

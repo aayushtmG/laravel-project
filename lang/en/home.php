@@ -29,6 +29,7 @@ return [
    'interprise' => 'Interprise',
    'our' => 'Our',
    'gallery' => 'Gallery',
+   'notices' => 'Notices',
    'news' => 'News',
    'events' => 'Events',
    'congratulation' => 'Congratulation',

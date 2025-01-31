@@ -1,7 +1,10 @@
 <?php
 return [
-    'Address' => 'ठेगाना',
-    'office hour' => 'संस्था खुल्ने समय ',
+    'address' => 'ठेगाना',
+    'office hour' => '',
+    '' => '',
+    '' => '',
+    '' => '',
     'sunday' => 'आइतबार',
     'monday' => 'सोमबार ',
     'tuesday' => 'मंगलबार ',

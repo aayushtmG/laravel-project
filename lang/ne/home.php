@@ -4,6 +4,8 @@ return [
    'banking' => 'बैंकिंग',
    'service' => 'सुबिधा',
    'services' => 'सुविधाहरु',
+   'sms' => 'SMS',
+    'notices' => 'सूचना',
    'free' => 'फ्री',
    'mobile' => 'मोबाइल',
    'debit' => 'डेबिट',

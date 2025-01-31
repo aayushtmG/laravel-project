@@ -3,7 +3,7 @@
       <div class="footer-upper grid sm:grid-cols-2  sm:place-items-center sm:items-start
         lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 p-4 md:p-16 ">
         <div class="footer-list-container">
-          <h3 class="footer-header">Address</h3>
+          <h3 class="footer-header">{{__('footer.address')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
             <li><i class="fa fa-location-arrow" aria-hidden="true"></i>{{$settings->address}}</li>
             <li><i class="fa fa-phone" aria-hidden="true"></i>{{$settings->toll_free_number}}</li>
@@ -12,7 +12,7 @@
         </div> 
         {{--  --}}
         <div class="footer-list-container">
-          <h3 class="footer-header">Office Hour</h3>
+          <h3 class="footer-header">{{__('footer.office hour')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
             <li><i class="fa fa-calendar" aria-hidden="true"></i>Monday to Sunday</li>
             <li><i class="fa fa-clock" aria-hidden="true"></i>08:00 AM to 5:00 PM</li>
