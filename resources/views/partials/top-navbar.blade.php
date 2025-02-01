@@ -20,14 +20,14 @@
             <div class="dropdown-menu dropdown-menu-end  p-2">
                <div class="px-4 pb-0 pt-2">
                   <div class="leading-4">
-                     <h5 class="mb-1"> Babylon</h5>
-                     <a href="#">View my profile</a>
+                     <h5 class="mb-1">{{Auth::user()->name}}</h5>
+                     {{-- <a href="#">View my profile</a> --}}
                   </div>
                   <div class="border-b mt-3 mb-2"></div>
                </div>
 
                <ul class="list-unstyled">
-                  <li>
+                  {{-- <li>
                      <a class="dropdown-item" href="#">
                         <i class="w-4 h-4" data-feather="user"></i>
                         Edit Profile
@@ -51,12 +51,16 @@
                         <i class="w-4 h-4" data-feather="settings"></i>
                         Account Settings
                      </a>
-                  </li>
+                  </li> --}}
                   <li>
-                     <a class="dropdown-item" href="./index.html">
+                     <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                     <button class="dropdown-item">
                         <i class="w-4 h-4" data-feather="power"></i>
                         Sign Out
-                     </a>
+                     </button>
+
+                     </form>
                   </li>
                </ul>
             </div>

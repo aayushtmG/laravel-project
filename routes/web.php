@@ -10,7 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController; 
 use App\Http\Controllers\NoticeController; 
 use App\Http\Controllers\AdminPageController; 
-use App\Http\Controllers\Auth\RegisterController; 
+use App\Http\Controllers\Auth\AuthController; 
 use App\Http\Controllers\MemberController; 
 use App\Http\Controllers\EventController; 
 use App\Http\Controllers\NewsController; 
@@ -23,6 +23,16 @@ use Illuminate\Http\Request;
 
 
 Route::get('/', [HomeController::class,'index'])->name('home');
+
+Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+
+Route::middleware('guest')->group(function(){
+  Route::get('/login',[AuthController::class,'showLogin'])->name('show.login');
+  Route::post('/login',[AuthController::class,'login'])->name('login');
+  Route::get('/register',[AuthController::class,'showRegister'])->name('show.register');
+  Route::post('/register',[AuthController::class,'register'])->name('register');
+});
+
 Route::get('/lang/{language}', [LanguageController::class,'languageSwitch']);
 Route::get('/language-switch',[LanguageController::class,'languageSwitch'])->name('language.switch');
 Route::get('/team',[MemberController::class,'show'])->name('team');
@@ -41,13 +51,10 @@ Route::get('/album/{id}',[GalleryController::class,'show'])->name('gallery.get')
 
 //ADMIN SECTION---------------------------------------------
 //admin dashboard
-Route::get('/admin',[AdminPageController::class,'index'])->name('admin.index');
-Route::get('/admin/settings',[AdminPageController::class,'settings'])->name('settings');
-Route::post('/admin/settings',[AdminPageController::class,'settingsUpdate'])->name('settings.update');
-
-//Authentication
-Route::get('/register',[RegisterController::class,'create']);
-Route::post('/register',[RegisterController::class,'store'])->name('register.store');
+Route::middleware('auth')->group(function(){
+  Route::get('/admin',[AdminPageController::class,'index'])->name('admin.index');
+  Route::get('/admin/settings',[AdminPageController::class,'settings'])->name('settings');
+  Route::post('/admin/settings',[AdminPageController::class,'settingsUpdate'])->name('settings.update');
 
 //Services
 Route::get('/admin/services',[ServiceController::class,'adminShow'])->name('admin.services.show');
@@ -118,3 +125,4 @@ Route::post('/admin/gallery/create',[GalleryController::class,'post'])->name('ad
 Route::get('/admin/gallery/edit/{id}',[GalleryController::class,'getEditGallery'])->name('admin.gallery.get.edit');
 Route::put('/admin/gallery/edit/',[GalleryController::class,'postEditGallery'])->name('admin.gallery.post.edit');
 Route::post('/admin/gallery/delete',[GalleryController::class,'delete'])->name('admin.gallery.delete');
+});

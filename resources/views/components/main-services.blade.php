@@ -13,7 +13,7 @@
     <div class="bg-gradient-to-r from-blue-600 to-green-600 w-max p-4 rounded-2xl">
       <img src="/images/icons/credit-cards-payment.png" alt="bank service image" class="w-14">
     </div>
-    <h2 class="text-lg">{{__('home.sms')}} {{__('home.service')}}</h2>
+    <h2 class="text-lg">SMS {{__('home.service')}}</h2>
   </div>
   {{-- end --}}
 
