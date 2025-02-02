@@ -1,7 +1,7 @@
 <?php
 return [
     'address' => 'ठेगाना',
-    'office hour' => '',
+    'office hour' => 'कार्यालय समय',
     'sunday' => 'आइतबार',
     'monday' => 'सोमबार ',
     'tuesday' => 'मंगलबार ',
@@ -26,15 +26,8 @@ return [
     'am' => 'बिहान',
     'pm' => 'सांझा',
     'to' => 'बाट',
-
-
-
-
-
-
-
-
-
+    'useful_links'=> 'उपयोगी लिङ्कहरू',
+'atm_locations'=>'एटीएम स्थानहरू'
 
 ];
 

@@ -25,7 +25,7 @@
           </ul>
         </div> 
         <div class="footer-list-container">
-          <h3 class="footer-header">Useful Links</h3>
+          <h3 class="footer-header">{{__('footer.useful_links')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
             <li><a href="/">{{__('footer.home')}}</a></li>
             <li><a href="/">{{__('footer.aboutus')}}</a></li>
@@ -58,7 +58,7 @@
           <h3 class="footer-header">{{__('footer.explore')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
             <li><a href="/">{{__('footer.branches')}}</a></li>
-            <li><a href="/">ATM Locations</a></li>
+            <li><a href="/">{{__('footer.atm_locations')}}</a></li>
           </ul>
         </div>
       </div>

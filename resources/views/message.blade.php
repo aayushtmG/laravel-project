@@ -2,7 +2,7 @@
 @section('title','Messages')
 @section('content')
 <div class="container mx-auto px-4 space-y-20 my-10">
-  <h1 class="text-4xl text-center text-gray-600 font-bold my-4">Messages from members</h1>
+  <h1 class="text-4xl text-center text-gray-600 font-bold my-4">{{__('messages.title')}}</h1>
     @foreach ($messages as $index => $message)
         <div class="flex flex-col md:flex-row {{ $index % 2 == 0 ? 'md:flex-row-reverse' : '' }} items-center gap-6 mb-10">
             <!-- Image Section -->

@@ -75,7 +75,7 @@
         </div> 
 {{--  --}}
         <div class="footer-list-container">
-          <h3 class="footer-header">Useful Links</h3>
+          <h3 class="footer-header">{{__('footer.useful_links')}}</h3>
           <ul class="footer-list flex flex-col gap-1">
             <li>Home</li>
             <li>About Us</li>
@@ -106,7 +106,7 @@
           <h3 class="footer-header">Others</h3>
           <ul class="footer-list flex flex-col gap-1">
             <li>Branches</li>
-            <li>ATM Locations</li>
+            <li>{}}ATM Locations</li>
           </ul>
         </div>
       </div>

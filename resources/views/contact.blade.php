@@ -3,17 +3,15 @@
 @section('content')
 <div class="bg-gray-50 xl:pb-20 container mx-auto my-20 rounded-md" id="contact" >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
-        <p class="pt-6 pb-6 text-base max-w-2xl text-center m-auto ">
-            Want to contact us? Choose an
-            option below and well be happy to show you how we can transform companys web experience.
+        <p class="pt-6 pb-6 text-base lg:text-2xl max-w-2xl text-center m-auto ">
+            {{__('contact.want_to_contact_us')}}
         </p>
     </div>
     <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 grid md:grid-cols-2 lg:grid-cols-2 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16">
         <div>
-            <h2 class="text-lg font-bold ">Contact Us</h2>
-            <p class="max-w-sm mt-4 mb-4 ">Have something to say? We are here to help. Fill up the
-                form or send email or call phone.</p>
+            <h2 class="text-lg font-bold ">{{__('contact.contact_us')}}</h2>
+            <p class="max-w-sm mt-4 mb-4 ">{{__('contact.description')}}</p>
             <div class="flex items-center mt-8 space-x-2 text-dark-600 ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor" aria-hidden="true" class="w-4 h-4">

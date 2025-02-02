@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
+use App\Models\Album;
 use App\Models\Member;
 use App\Models\News;
 use App\Models\Event;
@@ -40,6 +41,16 @@ class AdminPageController extends Controller
                 'title'=> 'Notices',
                 'quantity'=> Notice::count(),
                 'link'=>'/admin/notices'
+            ],
+            [
+                'title'=> 'Services',
+                'quantity'=> Service::count(),
+                'link'=>'/admin/services'
+            ],
+            [
+                'title'=> 'Gallery',
+                'quantity'=> Album::count(),
+                'link'=>'/admin/gallery'
             ]
             ]);
         return view('admin/home',compact('lists'));

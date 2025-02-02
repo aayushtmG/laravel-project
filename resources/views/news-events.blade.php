@@ -2,7 +2,7 @@
 @section('title','News & Events')
 @section('content')
 <section class="min-h-screen">
-  <h1 class="text-4xl font-semibold text-slate-700 text-center my-6 underline">News & Events</h1>
+  <h1 class="text-4xl font-semibold text-slate-700 text-center my-6 underline">{{__('home.news')}} & {{__('home.events')}}</h1>
   <div class="flex  container gap-8 flex-wrap mx-auto">
     @foreach ($news as $item)
             <a href="{{route('news.show',['id'=>$item->id])}}" class="w-full max-w-sm hover:scale-110 transition-transform">

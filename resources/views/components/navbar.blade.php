@@ -74,13 +74,16 @@
                             class="flex w-full px-4 py-2 text-left nav-links-item"
                         >
 {{__('nav.services')}}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
                         </button>
                         <ul 
                             id="mobile-dropdown-menu"
                             class="overflow-hidden w-4/5 ml-4 max-h-0 transition-[max-height] duration-500 ease-in-out nav-dropdown-list"
                         >
                             @foreach($services as $service)
-                            <li><a href="{{$service['link']}}" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">{{$service['service_name']}}</a></li>
+                            <li><a href="{{$service['link']}}" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">{{$service['title']}}</a></li>
                             @endforeach
                         </ul>
                     </div>

@@ -27,8 +27,9 @@ return [
     'latest'=>'Latest',
     'news'=>'News',
     'openinghour'=>"08:00",
-    'closinghour'=>"05:00"
-
+    'closinghour'=>"05:00",
+    'useful_links'=> 'Useful Links',
+    'atm_locations'=>'ATM Locations'
 
 
 ];
