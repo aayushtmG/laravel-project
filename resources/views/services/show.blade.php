@@ -8,9 +8,9 @@
             <img src="{{ asset('/images/services/' . $service->image) }}" alt="{{ $service->title }}" class="w-full rounded-lg shadow-lg">
             <!-- Service Details -->
             <h1 class="text-2xl font-bold mb-4">{{ $service->name }}</h1>
-            <p class="text-gray-700 mb-6">{{ $service->description }}</p>
+            <p class="text-gray-700 mb-6 whitespace-pre-line">{{ $service->description }}</p>
         </div>
-        <div class="shadow-md min-h-[300px] max-md:col-span-2 max-w-[300px] h-max p-8 px-12 rounded-md">
+        <div class="shadow-md min-h-[300px] max-md:col-span-2 max-w-[300px] h-max mx-auto p-8 px-12 rounded-md">
             <!-- Related Services -->
             <h2 class="text-xl font-semibold mb-2 tracking-wide text-black/70">Related Services</h2>
             <ul class="space-y-2 list-disc marker:text-blue-500">

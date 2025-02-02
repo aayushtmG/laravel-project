@@ -83,7 +83,7 @@
                             class="overflow-hidden w-4/5 ml-4 max-h-0 transition-[max-height] duration-500 ease-in-out nav-dropdown-list"
                         >
                             @foreach($services as $service)
-                            <li><a href="{{$service['link']}}" class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">{{$service['title']}}</a></li>
+                            <li><a href={{route('services.show',$service->id)}}  class="block px-4 py-2 hover:bg-gray-100 border-gray-300 border-b text-base">{{$service['title']}}</a></li>
                             @endforeach
                         </ul>
                     </div>
