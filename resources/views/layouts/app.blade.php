@@ -33,10 +33,10 @@
     <div class="top-nav-wrapper bg-gradient-to-tr from-blue-500 to-green-500 flex max-md:flex-col max-md:items-end">
       <div class="top-nav flex justify-end container">
         <ul class="flex gap-4 flex-wrap p-2">
-          <li><a href="/contact">Our Location</a></li>
-          <li><a href="/">Download Forms</a></li>
-          <li><a href="/">Careers</a></li>
-          <li><a href="/admin">Login</a></li>
+          <li><a href="/contact">{{__('nav.our_locations')}}</a></li>
+          <li><a href="/">{{__('nav.download_forms')}}</a></li>
+          <li><a href="/">{{__('nav.careers')}}</a></li>
+          <li><a href="/admin">{{__('nav.login')}}</a></li>
         </ul>
       </div>
     <div class="2xl:absolute right-4 top-2 flex items-center px-4 gap-2 text-white">
@@ -51,7 +51,7 @@
       <img src="{{asset('/images/settings/'.$settings->banner_image)}}" class="max-h-[140px] "/>
       <div>
         <div class="flex items-center gap-2 my-2" >
-          <span><i class="fa-solid fa-phone bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>Toll Free: {{$settings->toll_free_number}} </p>
+          <span><i class="fa-solid fa-phone bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>{{__('nav.toll_free')}}: {{$settings->toll_free_number}} </p>
         </div>
         <div class="flex items-center gap-2">
           <span><i class="fa-solid fa-envelope bg-gray-200 p-2 rounded-full text-green-800"></i></span><p>{{$settings->company_email}}</p>

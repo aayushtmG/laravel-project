@@ -10,16 +10,11 @@ return [
     'news'=>'News',
     'will_appear'=>'will appear',
     'here'=>'here',
-    'toll'=>'Toll',
-    'free'=>'free',
-
-    'our'=> 'our',
-    'location'=> 'Location',
-    'download'=>'Download',
-    'forms'=>'Forms',
+    'toll_free'=>'Toll Free',
+    'our_locations'=>'Our Locations',
+    'download_forms'=>'Download Forms',
     'careers'=>'Careers',
     'login'=>'Login',
-
 ];
 
 ?>
