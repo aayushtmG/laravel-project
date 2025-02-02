@@ -13,7 +13,7 @@
          <li class="dropdown ml-2">
             <a class="rounded-full" href="#" role="button" id="dropdownUser" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <div class="w-10 h-10 relative">
-                  <img alt="avatar" src="/images/ceo-image.jpg" class="rounded-full" />
+                  <img alt="avatar" src="/images/saving.png" class="rounded-full w-full h-full object-cover" />
                   <div class="absolute border-gray-200 border-2 rounded-full right-0 bottom-0 bg-green-600 h-3 w-3"></div>
                </div>
             </a>
