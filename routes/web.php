@@ -43,6 +43,7 @@ Route::get('/news-events',[NewsEventsController::class,'show'])->name('news-even
 Route::get('/notices',[NoticeController::class,'index'])->name('notices');
 Route::get('/notices/{id}',[NoticeController::class,'show'])->name('notices.show');
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('services.show');
+Route::get('/services/',[ServiceController::class,'index'])->name('services.all');
 Route::get('/news/{id}',[NewsController::class,'show'])->name('news.show');
 Route::get('/event/{id}',[EventController::class,'show'])->name('event.show');
 Route::get('/album',[GalleryController::class,'index'])->name('gallery.all');

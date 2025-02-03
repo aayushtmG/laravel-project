@@ -1,24 +1,20 @@
 @extends('layouts.app')
+@section('title','All Services')
 @section('content')
-<div class="grid grid-cols-2 gap-8 my-10">
-  @foreach($services as $service)
-  <div class="shadow-md p-8">
-  <img src="{{asset('/images/uploads/'.$service['image'])}}" alt="{{$service['name']}} image" class="max-w-[300px] mx-auto">
-  <h1 class="font-bold">{{$service['name']}} {{$service->id}}</h1>
-  <p>{{$service['description']}}</p>
+<section class="min-h-screen">
+  <h1 class="text-4xl font-semibold text-slate-700 text-center my-6 underline">All Services</h1>
+  <div class="flex  container gap-8 flex-wrap mx-auto">
+    @foreach ($services as $item)
+            <a href="{{route('services.show',['id'=>$item->id])}}" class="w-full max-w-sm hover:scale-110 transition-transform">
+            <div class="bg-white p-4 rounded shadow">
+                @if(isset($item['image']))
+                    <img src="{{asset('/images/services/'.$item->image)}}" alt="{{ $item->title }}" class="w-full h-48 object-cover object-center mb-4">
+                @endif
+                <h3 class="font-bold text-lg">{{ $item['title'] }}</h3>
+                <p class="text-gray-600 text-sm">{{ $item['created_at']->format('M d, Y') }}</p>
+            </div>
+            </a>
+    @endforeach
   </div>
-  @endforeach
-</div>
-  <form action="/service/create-service" class="flex flex-col justify-center max-w-[200px] bg-blue-300 p-8 mx-auto" method="POST" enctype="multipart/form-data">
-    @csrf
-    <h1>Add new service</h1>
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" />
-    <label for="description">description</label>
-    <textarea id="description" name="description" >
-    </textarea>
-    <label for="image">image_url</label>
-    <input type="file" id="image" name="image" />
-    <button type="submit">Submit</button>
-  </form>  
+</section>
 @endsection

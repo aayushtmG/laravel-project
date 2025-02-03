@@ -11,7 +11,7 @@ class GalleryController extends Controller
     // All albums
     public function index(){
         $albums = Album::all();
-        return view('gallery.show',compact('albums'));
+        return view('gallery.index',compact('albums'));
     }
 
     //images of one album
@@ -63,7 +63,6 @@ class GalleryController extends Controller
             $this->deleteDirectory($album_path);
             $album->delete();
         }
-
         return redirect()->route('admin.gallery.get');
     }
     public function getEditGallery($id){

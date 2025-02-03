@@ -42,12 +42,18 @@
       </section>
       @include('components.organization-profile')
 <section class="px-4 container mx-auto">
-  <h1 class="section-header text-2xl lg:text-4xl">{{__('home.products')}} & {{__('home.services')}}</h1>
+          <div class="flex justify-between max-md:items-center items-end ">
+            <h1 class="section-header text-2xl lg:text-4xl">{{__('home.products')}} & {{__('home.services')}}</h1>
+            <a href="{{route('services.all')}}" class="max-md:text-xs text-sm btn hover:bg-slate-800 hover:text-white ">{{__('home.viewall')}}</a>
+          </div>
       <x-product-services />
 </section>
       {{-- our gallery --}}
       <section class="container mx-auto overflow-auto">
-          <h1 class="section-header text-2xl lg:text-4xl container mx-auto"> {{__('home.our')}} {{__('home.gallery')}}</h1>
+          <div class="flex justify-between max-md:items-center items-end ">
+          <h1 class="section-header text-2xl lg:text-4xl "> {{__('home.our')}} {{__('home.gallery')}}</h1>
+          <a href="{{route('gallery.all')}}" class="max-md:text-xs text-sm btn hover:bg-slate-800 hover:text-white ">{{__('home.viewall')}}</a>
+          </div>
           <x-gallery />
       </section>
       {{-- news & events section --}}
