@@ -9,7 +9,7 @@
    <div class="flex flex-col gap-4 shadow-md p-4 rounded-md w-full ">
     <h1 class="text-2xl font-semibold text-slate-600">
     All Settings:</h1>
-    <div class="grid grid-cols-2 gap-2">
+    <div class="grid  md:grid-cols-2 gap-2">
     {{-- logo --}}
     <div class="space-y-2  p-4 rounded-md">
       <label for="logo-image-upload" class="font-semibold">Select Logo:</label>

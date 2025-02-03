@@ -1,14 +1,14 @@
 
 @extends('layouts.admin')
 @section('content')
-<div class="container mx-auto px-20 my-8 flex flex-col">
+<div class="md:container md:mx-auto px-6 md:px-20  my-8 flex flex-col">
   {{-- Header --}}
   <div class="flex justify-between items-center w-full">
     <h1 class="text-2xl font-semibold text-slate-600">Edit Album</h1>
     <a href="{{ route('admin.gallery.get') }}" class="btn hover:bg-slate-800 hover:text-white">Gallery</a>
   </div>
   {{-- Form --}}
-  <form action="{{ route('admin.gallery.post.edit') }}" class="flex gap-10 py-4" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('admin.gallery.post.edit') }}" class="flex max-md:flex-col-reverse gap-10 py-4" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT') {{-- Use PUT method for updates --}}
     <input type="hidden" value="{{$album->id}}" name="id">

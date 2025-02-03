@@ -1,6 +1,6 @@
 @extends('layouts.admin')
  @section('content')
-<div class="container mx-auto px-20  my-8 flex flex-col">
+<div class="md:container md:mx-auto px-6 md:px-20  my-8 flex flex-col">
   {{-- header --}}
   <div class="flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-slate-600">
@@ -8,7 +8,7 @@
 </h1>
     <a href="{{route('admin.members.show')}}" class="btn hover:bg-slate-800 hover:text-white">All Member</a>
   </div>
-  <form action="{{route('members.create')}}" class=" flex gap-10 py-4" method="POST" enctype="multipart/form-data">
+  <form action="{{route('members.create')}}" class=" flex max-md:flex-col-reverse gap-10 py-4" method="POST" enctype="multipart/form-data">
     @csrf
    <div class="flex flex-col gap-4 shadow-md p-4 rounded-md w-full ">
     <h1 class="text-2xl font-semibold text-slate-600">
@@ -22,7 +22,7 @@
       @endif
       </div>
       {{-- Group --}}
-      <div class="flex gap-4">
+      <div class="flex gap-4 max-md:flex-col">
         {{-- email --}}
         <div class="flex flex-col w-full">
         <label for="email">Email:</label> 
@@ -44,7 +44,7 @@
         </div>
       </div>
       {{-- Group --}}
-      <div class="flex gap-4">
+      <div class="flex gap-4 max-md:flex-col">
         {{-- position --}}
         <div class="flex flex-col w-full">
         <label for="position">Position:</label> 

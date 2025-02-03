@@ -30,7 +30,7 @@
     </head>
     <body >
   <header class="relative">
-    <div class="top-nav-wrapper bg-gradient-to-tr from-blue-500 to-green-500 flex max-md:flex-col max-md:items-end">
+    <div class="top-nav-wrapper bg-gradient-to-tr from-blue-500 to-green-500 flex max-md:flex-col max-md:items-end py-2">
       <div class="top-nav flex justify-end container">
         <ul class="flex gap-4 flex-wrap p-2">
           <li><a href="/contact">{{__('nav.our_locations')}}</a></li>

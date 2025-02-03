@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-               <div class=" overflow-hidden rounded-lg shadow-xs my-8 flex gap-4">
+               <div class="overflow-hidden rounded-lg shadow-xs my-8 flex max-lg:flex-col-reverse max-lg:items-center gap-4">
               <div class="w-full overflow-x-auto px-2">
                 <table class="w-full whitespace-no-wrap">
                   <thead class="flex-grow-0 ">
@@ -55,11 +55,11 @@
                   </tbody>
                 </table>
             </div>
-            <form action="{{route('sliders.create')}}" class="shadow-lg flex gap-10 py-4 mx-10 min-w-[400px]" method="POST" enctype="multipart/form-data">
+            <form action="{{route('sliders.create')}}" class="shadow-lg flex gap-10 py-4 mx-10  min-w-[400px]" method="POST" enctype="multipart/form-data">
               @csrf
                   {{-- Add new image --}}
-                      <div class="space-y-2 p-4 rounded-md h-min file-input mx-auto">
-                      <div class="mb-3 text-center h-[300px] w-[350px]  border mx-auto">
+                      <div class="space-y-2 p-4  rounded-md h-min file-input mx-auto">
+                      <div class="mb-3 text-center h-[300px] w-[350px] max-lg:w-[300px] border mx-auto ">
                           <img id="image_preview" src="{{ asset('images/icons/no-image.png') }}" alt="No Image Available" class="max-w-[350px] w-full h-[300px] object-cover" >
                       </div>
                     <input type="file" id="slider_images" name="image"  accept="image/*" class="file px-2 image-upload-btn" onchange="previewImage(event)"/>
