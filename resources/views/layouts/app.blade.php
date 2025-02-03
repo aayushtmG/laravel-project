@@ -39,7 +39,7 @@
           <li><a href="/admin">{{__('nav.login')}}</a></li>
         </ul>
       </div>
-    <div class="2xl:absolute right-4 top-2 flex items-center px-4 gap-2 text-white">
+    <div class="2xl:absolute right-4 top-4 flex items-center px-4 gap-2 text-white">
       <a href="{{ url('lang/en') }}" class="text-base @if(app()->getLocale() == 'en') border border-slate-800 bg-slate-800 px-4 rounded-md  @else hover:text-black hover:scale-110 transition-transform @endif
   ">English</a>
       <span class="text-white">/</span>

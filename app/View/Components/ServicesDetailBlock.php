@@ -17,25 +17,25 @@ class ServicesDetailBlock extends Component
                 'icon' => '/images/icons/provider.png',
                 'name' => 'ABBS Service',
                 'description' => 'Any Branch Banking Service is one of our services ,which our members are highly benefited thorough out all our service centers. We provide ABBS service to our account holders throughout our branch network.' ,
-                'link' => '/'
+                'link' => '#'
             ],
             [
                 'icon' => '/images/icons/atm-machine.png',
                 'name' => 'Debit Card (ATM Service)',
                 'description' => 'Any Branch Banking Service is one of our services ,which our members are highly benefited thorough out all our service centers. We provide ABBS service to our account holders throughout our branch network.',
-                'link'=> '/'
+                'link'=> '#'
             ],
             [
                 'icon' => '/images/icons/mobile-banking.png',
                 'name' => 'Free Mobile Banking Service',
                 'description' => 'Any Branch Banking Service is one of our services ,which our members are highly benefited thorough out all our service centers. We provide ABBS service to our account holders throughout our branch network.',
-                'link'=> '/'
+                'link'=> '#'
             ],
             [
                 'icon' => '/images/icons/mobile-chat.png',
                 'name' => 'SMS Service',
                 'description' => 'Any Branch Banking Service is one of our services ,which our members are highly benefited thorough out all our service centers. We provide ABBS service to our account holders throughout our branch network.',
-                'link'=> '/' 
+                'link'=> '#' 
             ]
         ]);
     }
