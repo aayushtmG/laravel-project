@@ -2,6 +2,7 @@
 @section('title','Contact')
 @section('content')
 <div class="bg-gray-50 xl:pb-20 container mx-auto my-20 rounded-md" id="contact" >
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d833.7184473068472!2d84.43036830482676!3d27.680974386722873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1738566393763!5m2!1sen!2snp"  height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full"></iframe>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
         <p class="pt-6 pb-6 text-base lg:text-2xl max-w-2xl text-center m-auto ">
             {{__('contact.want_to_contact_us')}}
