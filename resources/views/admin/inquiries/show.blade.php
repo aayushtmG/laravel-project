@@ -30,7 +30,6 @@
       </div>
      <a href="mailto:{{$inquiry->email}}"><button type="button"  class="btn w-max bg-slate-800 text-white hover:bg-slate-800/90">Reply</button></a>
     </div> 
-
   </div>
 </div>
 @endsection 

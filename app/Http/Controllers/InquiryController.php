@@ -8,7 +8,7 @@ use App\Models\Inquiry;
 class InquiryController extends Controller
 {
     public function all(){
-        $inquiries = Inquiry::all();
+        $inquiries = Inquiry::paginate(5);
         return  view('admin.inquiries.index',compact('inquiries'));
     }
 

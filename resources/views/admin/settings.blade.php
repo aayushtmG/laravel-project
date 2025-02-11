@@ -4,9 +4,9 @@
   @if($errors->any())
     {{ implode('', $errors->all('<div>:message</div>')) }}
   @endif
-  <form action="{{route('settings.update')}}" method="POST" enctype="multipart/form-data">
+  <form action="{{route('settings.update')}}" method="POST" enctype="multipart/form-data" >
     @csrf
-   <div class="flex flex-col gap-4 shadow-md p-4 rounded-md w-full ">
+   <div class="flex flex-col gap-4 shadow-md p-4 rounded-md w-full  ">
     <h1 class="text-2xl font-semibold text-slate-600">
     All Settings:</h1>
     <div class="grid  md:grid-cols-2 gap-2">

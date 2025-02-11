@@ -14,7 +14,7 @@ class NewsController extends Controller
         return view('news.show',compact('news','relatedNews','title'));
     }
     public function adminShow(){
-        $news = News::all();
+        $news = News::paginate(4);
         return view('admin.news.show',compact('news'));
     }
     public function getAddNews(){

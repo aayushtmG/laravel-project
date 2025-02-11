@@ -50,7 +50,7 @@ class ServiceController extends Controller
         return view('admin.services.create');
     }
     public function adminShow(){
-        $services = Service::all();
+        $services = Service::paginate(4);
         return view('admin.services.show',compact('services'));
     }
     public function getEditService($id){

@@ -14,7 +14,7 @@ class EventController extends Controller
         return view('events.show',compact('event','relatedEvents','title'));
     }
     public function adminShow(){
-        $events = Event::all();
+        $events = Event::paginate(4);
         return view('admin.events.show',compact('events'));
     }
     public function getAddEvent(){

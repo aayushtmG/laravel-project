@@ -15,7 +15,7 @@ class MemberController extends Controller
         return view('team',compact('members','board','membersTop','boardsTop'));
     }
     public function adminShow(){
-        $members = Member::all();
+        $members = Member::paginate(8);
         return view('admin.members.show',compact('members'));
     }
     public function getAddMember(){

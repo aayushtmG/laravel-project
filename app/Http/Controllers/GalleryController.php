@@ -23,7 +23,7 @@ class GalleryController extends Controller
     }
 
     public function adminShow(){
-        $albums = Album::all();
+        $albums = Album::paginate(4);
         return view('admin.gallery.show',compact('albums'));
     }
     public function create(Request $request){

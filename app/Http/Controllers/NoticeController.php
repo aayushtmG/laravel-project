@@ -15,12 +15,12 @@ class NoticeController extends Controller
         return view('notices.show',compact('notice','otherNotices','title'));
     }
     public function index(){
-    $notices = Notice::all();
+            $notices = Notice::all();
         return view('notices.index',compact('notices'));
     }
 
     public function adminShow(){
-        $notices = Notice::all();
+        $notices = Notice::paginate(4);
         return view('admin.notices.show',compact('notices'));
     }
     public function getAddNotice(){

@@ -11,6 +11,7 @@ use App\Models\Event;
 use App\Models\Notice;
 use App\Models\Setting;
 use App\Models\Slider;
+use App\Models\Inquiry;
 
 class AdminPageController extends Controller
 {
@@ -51,6 +52,11 @@ class AdminPageController extends Controller
                 'title'=> 'Gallery',
                 'quantity'=> Album::count(),
                 'link'=>'/admin/gallery'
+            ],
+            [
+                'title'=> 'Inquiries',
+                'quantity'=> Inquiry::count(),
+                'link'=>'/admin/inquiries'
             ]
             ]);
         return view('admin/home',compact('lists'));

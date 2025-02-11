@@ -12,7 +12,7 @@ class MessageController extends Controller
         return view('message',compact('messages'));
     }
     public function adminShow(){
-        $messages = Message::all();
+        $messages = Message::paginate(2);
         return view('admin.messages.show',compact('messages'));
     }
     public function getAddMessage(){
