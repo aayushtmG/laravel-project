@@ -15,7 +15,7 @@ class Navbar extends Component
     public function __construct()
     {
         $this->services =  Service::all();
-        $this->news = News::latest()->get();
+        $this->news = News::latest()->limit(4)->get();
     }
 
     /**

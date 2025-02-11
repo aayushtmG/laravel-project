@@ -7,7 +7,7 @@
         <div class="flex flex-col md:flex-row {{ $index % 2 == 0 ? 'md:flex-row-reverse' : '' }} items-center gap-6 mb-10">
             <!-- Image Section -->
             <div class="w-full md:w-1/2">
-                <img src="/images/messages/{{ $message['image'] }}" alt="{{ $message['name'] }}" class="rounded-lg shadow-lg w-3/4 h-auto  mx-auto">
+                <img src="{{ $message['image'] }}" alt="{{ $message['name'] }}" class="rounded-lg shadow-lg w-3/4 h-auto  mx-auto">
             </div>
 
             <!-- Content Section -->

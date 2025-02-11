@@ -45,18 +45,30 @@
                         </div>
 @if(Route::is('home'))
     <div class="hidden md:flex items-center  bg-white">
-        <h1 class="bg-blue-500 px-6 py-2 font-bold skewed-border ">{{__('nav.news')}}</h1>
-        {{-- <marquee >
-        <a href="/news/{{$latestNews['id']}}" class="text-blue-800 text-base">{{$latestNews['title']}}</a>
-        </marquee> --}}
-<marquee >
+        <div class="bg-blue-500 min-h-full skewed-border ">
+            <h1 class=" px-6 py-2 font-bold ">{{__('nav.news')}}</h1>
+        </div>
+        {{-- simple marquee --}}
+{{-- <marquee >
     @foreach($news as $singleNews)
         <a href="/news/{{ $singleNews->id }}" class="text-blue-800 text-base mr-[70%]">
             {{ $singleNews->title }}
         </a>
     @endforeach
-</marquee>
-    </div>                        
+</marquee>--}}
+        {{-- customized marquee --}}
+<div class="marquee">
+    @foreach($news as $singleNews)
+  <div class="marquee-content-container">
+    <div class="marquee-content">
+        <a href="/news/{{ $singleNews->id }}" class="text-red-500 hover:text-blue-800 text-base mr-[70%]">
+            {{ $singleNews->title }}
+        </a>
+        </div>
+  </div>
+    @endforeach
+</div>
+    </div>                         
 @endif 
             </div>
         <!-- mobile navigation -->
@@ -139,4 +151,54 @@
     document.querySelectorAll('#mobile-menu, #desktop-dropdown-menu').forEach((menu) => {
         menu.addEventListener('click', (e) => e.stopPropagation());
     });
+    //script for marquee
+    const marqueeElements = document.querySelectorAll('.marquee-content');
+const marqueeElementsContainer = document.querySelectorAll('.marquee-content-container');
+marqueeElements.forEach(element => {
+    element.addEventListener('mouseover',function(){
+              marqueeElementsContainer.forEach(el => {
+                el.style.animationPlayState ='paused'
+              })
+})
+   element.addEventListener('mouseout',function(){
+              marqueeElementsContainer.forEach(el => {
+                el.style.animationPlayState ='running'
+              })
+})
+})
 </script>
+
+<style>
+        .marquee {
+                    width: 100%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    box-sizing: border-box;
+        }
+        .marquee-content-container{
+        display: inline-block;
+        min-width:100%;
+        animation: marquee 50s linear infinite;
+        margin-right:20px;
+        }
+        .marquee-content {
+            background-color: white;
+            padding: 5px;
+          display: inline-block;
+        }
+         /*controlling marquee speed according to viewport  */
+        @media (max-width:900px){
+            .marquee-content-container{
+                margin-right:20px;
+                animation: marquee 30s linear infinite;
+            }
+        }
+        @keyframes marquee {
+            from {
+                transform: translateX(110%);
+            }
+            to {
+                transform: translateX(-110%);
+            }
+        }
+    </style>

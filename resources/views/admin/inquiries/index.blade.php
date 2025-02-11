@@ -1,13 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 <div class="p-6">
-
   {{-- header --}}
   <div class="flex justify-between items-center my-4">
     <h1 class="text-2xl font-semibold text-slate-600">
-    Messages 
+    All Email Inquiries 
 </h1>
-    <a href="{{route('admin.messages.get.create')}}" class="btn hover:bg-slate-800 hover:text-white">Add Messages</a>
   </div>
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
               <div class="w-full overflow-x-auto">
@@ -17,9 +15,7 @@
                       class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase  border border-black "
                     >
                       <th class="px-4 py-3">Name</th>
-                      <th class="px-4 py-3">Position</th>
                       <th class="px-4 py-3">Email</th>
-                      <th class="px-4 py-3">Image</th>
                       <th class="px-4 py-3">Message</th>
                       <th class="px-4 py-3">Actions</th>
                     </tr>
@@ -27,48 +23,22 @@
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 "
                   >
-                  @foreach ($messages as $item)
-                    <tr class="text-gray-700">
-                      <td class="px-4 py-3 text-sm">
-                        {{$item->name}}  
+                  @foreach ($inquiries as $item)
+                    <tr class="text-gray-700 relative">
+                      <td class="px-4 py-3">
+                        {{$item->name}}
                       </td>
-                      <td class="px-4 py-3 text-sm">
-                        {{$item->position}}  
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        {{$item->email}}  
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <img src="{{$item->image}}"
-                        class="max-w-[150px]"/>
-                      </td>
-
                       <td class="px-4 py-3 text-xs ">
-                        <p class="text-sm">
-                        {{substr($item->message,0,25).'...'}}
+                        <p class="">
+                          {{$item->email}}
                         </p>
                       </td>
-                      <td class="px-4 py-3">
+                      <td class="px-4 py-3 text-sm">
+                        {{substr($item->message,0,25).'...'}}
+                      </td>
+                      <td class="px-4 py-3 col-span-2">
                         <div class="flex items-center space-x-4 text-sm">
-                          <a href="{{route('admin.messages.get.edit',['id'=> $item['id']])}}">
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray hover:text-slate-800"
-                            aria-label="Edit"
-                          >
-                            <svg
-                              class="w-5 h-5"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
-                              ></path>
-                            </svg>
-                          </button>
-
-                          </a>
-                          <form action="{{route('messages.delete')}}" method="POST">
+                          <form action="{{route('inquiry.delete')}}" method="POST">
                             @csrf
                           <input type="hidden" value="{{$item->id}}" name="id">
                           <button
@@ -90,6 +60,14 @@
                             </svg>
                           </button>
                           </form>
+                          <a href="{{route('admin.inquiry.show',['id'=>$item->id])}}" class="absolute right-4">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg btn focus:outline-none focus:shadow-outline-gray hover:text-white  hover:bg-slate-800"
+                            aria-label="Edit"
+                          >
+                          View
+                          </button>
+                        </a>
                         </div>
                       </td>
                     </tr>
@@ -101,7 +79,12 @@
               <div
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 "
               >
-                <span class="flex col-span-full mt-2 sm:mt-auto sm:justify-end">
+                <span class="flex items-center col-span-3">
+                  Showing 10 of 10
+                </span>
+                <span class="col-span-2"></span>
+                <!-- Pagination -->
+                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                   <nav aria-label="Table navigation">
                     <ul class="inline-flex items-center">
                       <li>

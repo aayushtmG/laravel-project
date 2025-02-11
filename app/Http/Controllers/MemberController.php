@@ -8,68 +8,11 @@ use App\Models\Member;
 class MemberController extends Controller
 {
     public function show(){
-    //fetch from database
-    // $members=collect([
-    //     [
-    //         'name'=> 'Mahendra Kumar Giri',
-    //         'position'=> 'Chief Executive',
-    //         'email'=>'ceo@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-5.jpg',
-    //     ],
-    //     [
-    //         'name'=> 'Laxman Khatiwada',
-    //         'position'=> 'Director',
-    //         'email'=>'director@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-1.jpg',
-    //     ],
-    //     [
-    //         'name'=> 'Dinesh Bahadur Niraula',
-    //         'position'=> 'Deputy Director',
-    //         'email'=>'admin@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-2.jpg',
-    //     ],
-    //     [
-    //         'name'=> 'Ishwor Prasad Bhattarai',
-    //         'position'=> 'Assistant Director',
-    //         'email'=>'audit@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-3.jpg',
-    //     ],
-    //     [
-    //         'name'=> 'Nirmala Bhattarai',
-    //         'position'=> 'Assistant Director',
-    //         'email'=>'audit@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-4.jpg',
-    //     ]
-    //     ]);
-    // $board=collect([
-    //     [
-    //         'name'=> 'Laxman Khatiwada',
-    //         'position'=> 'Director',
-    //         'email'=>'director@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-1.jpg',
-    //     ],
-    //     [
-    //         'name'=> 'Dinesh Bahadur Niraula',
-    //         'position'=> 'Deputy Director',
-    //         'email'=>'admin@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-2.jpg',
-    //     ],
-    //     [
-    //         'name'=> 'Ishwor Prasad Bhattarai',
-    //         'position'=> 'Assistant Director',
-    //         'email'=>'audit@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-3.jpg',
-    //     ],
-    //     [
-    //         'name'=> 'Nirmala Bhattarai',
-    //         'position'=> 'Assistant Director',
-    //         'email'=>'audit@saharanepal.ccop.np',
-    //         'image'=>'/images/members/profile-4.jpg',
-    //     ]
-    //     ]);
-        $members = Member::all()->where('department','management');
-        $board = Member::all()->where('department','board');
-        return view('team',compact('members','board'));
+        $members = Member::all()->where('department','management')->where('position','!=','CEO');
+        $membersTop = Member::where('position','CEO')->first();
+        $boardsTop = Member::where('position','president')->first();
+        $board = Member::all()->where('department','board')->where('position','!=','President');
+        return view('team',compact('members','board','membersTop','boardsTop'));
     }
     public function adminShow(){
         $members = Member::all();
@@ -152,5 +95,12 @@ class MemberController extends Controller
         ]);
         return redirect()->route('admin.members.show');
 
+    }
+    //search memebers
+ public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $results = Member::where('name', 'LIKE', "%$query%")->orderByRaw("LOCATE(?, name)", [$query])->get();
+        return response()->json($results);
     }
 }

@@ -26,20 +26,12 @@ class MessageController extends Controller
             'image'=> 'required',
             'position'=>'required'
         ]);
-        // hanlde file upload
-        $filename = null;
-        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = str_replace(' ','_',$request->name).'.'.$extension;
-            $file->move(public_path('/images/messages'),$filename);
-        }
         Message::create([
            'name' => $request->input('name'),
             'message' => $request->input('message'),
             'position'=> $request->input('position'),
             'email'=> $request->input('email'),
-            'image'=> $filename ?? null
+            'image'=> $request->input('image')
         ]); 
         return redirect()->route('admin.messages.show');
     }
@@ -62,24 +54,8 @@ class MessageController extends Controller
     public function postEditMessage(Request $request){
         $id = $request->id;
         $message = Message::find($id);
-        if($request->hasFile('image')){
-            $previousImage = $message->image;
-            $previousFilepath = public_path('images/messages/'.$previousImage);
-            if(file_exists($previousFilepath)){
-                unlink($previousFilepath);
-            }
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = str_replace(' ','_',$request->name).'.'.$extension;
-            $file->move(public_path('/images/messages'),$filename);
-            $message->image = $filename;
-        }
         $message->update([
-            'name' => $request->input('name'),
             'message' => $request->input('message'),
-            'position'=> $request->input('position'),
-            'email'=> $request->input('email'),
-            'image'=> $message->image
         ]);
         return redirect()->route('admin.messages.show');
     }

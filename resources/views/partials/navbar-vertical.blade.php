@@ -103,6 +103,13 @@
          </li>
 
          <li class="nav-item ">
+               <a class="nav-link {{ request()->is('admin/inquiry') ? 'active' : '' }}" href="{{ route('admin.inquiry.all') }}"  onclick="toggleDropdown(event)" >
+                  <i  class="fa-solid fa-comment-dots w-4 h-4 mr-2"></i>
+                  Email Inquiries
+               </a>
+         </li>
+
+         <li class="nav-item ">
                <a class="nav-link"  onclick="toggleDropdown(event)" >
                   <i  class="fa-solid fa-comments w-4 h-4 mr-2"></i>
                   Messages

@@ -19,6 +19,7 @@ use App\Http\Controllers\NewsEventsController;
 use App\Http\Controllers\SliderController; 
 use App\Http\Controllers\AboutController; 
 use App\Http\Controllers\GalleryController; 
+use App\Http\Controllers\InquiryController; 
 use Illuminate\Http\Request;
 
 
@@ -50,6 +51,9 @@ Route::get('/album',[GalleryController::class,'index'])->name('gallery.all');
 Route::get('/album/{id}',[GalleryController::class,'show'])->name('gallery.get');
 
 
+//Inquiries
+Route::post('/admin/inquiry',[InquiryController::class,'post'])->name('admin.inquiry.post');
+
 //ADMIN SECTION---------------------------------------------
 //admin dashboard
 Route::middleware('auth')->group(function(){
@@ -73,6 +77,7 @@ Route::post('/admin/members/create',[MemberController::class,'postAddMember'])->
 Route::get('/admin/members/edit/{id}',[MemberController::class,'getEditMember'])->name('admin.members.get.edit');
 Route::post('/admin/members/edit',[MemberController::class,'postEditMember'])->name('members.edit');
 Route::post('/admin/members/delete',[MemberController::class,'deleteMember'])->name('members.delete');
+Route::get('/admin/members/search',[MemberController::class,'search']);
 
 //Events
 Route::get('/admin/events',[EventController::class,'adminShow'])->name('admin.events.show');
@@ -117,6 +122,12 @@ Route::post('/admin/sliders',[SliderController::class,'postSlider'])->name('slid
 //about
 Route::get('/admin/about',[AboutController::class,'adminShow'])->name('admin.about.get');
 Route::post('/admin/about',[AboutController::class,'adminPost'])->name('admin.about.post');
+
+//inquiries
+Route::get('/admin/inquiry',[InquiryController::class,'all'])->name('admin.inquiry.all');
+Route::get('/admin/inquiry/{id}',[InquiryController::class,'show'])->name('admin.inquiry.show');
+Route::post('/admin/inquiry/delete',[InquiryController::class,'delete'])->name('inquiry.delete');
+
 
 
 //gallery
