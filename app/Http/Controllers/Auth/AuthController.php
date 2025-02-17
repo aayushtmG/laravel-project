@@ -23,7 +23,6 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->route('admin.index'); 
         }
-
         throw ValidationException::withMessages([
             'credentials'=> 'Credentials doesn\'t match!!!' 
         ]);

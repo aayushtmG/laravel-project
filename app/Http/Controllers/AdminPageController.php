@@ -56,7 +56,7 @@ class AdminPageController extends Controller
             [
                 'title'=> 'Inquiries',
                 'quantity'=> Inquiry::count(),
-                'link'=>'/admin/inquiries'
+                'link'=>'/admin/inquiry'
             ]
             ]);
         return view('admin/home',compact('lists'));

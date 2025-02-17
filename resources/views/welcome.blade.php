@@ -8,8 +8,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./app.css">
-            <link rel="stylesheet" href="http://192.168.1.71:5173/resources/css/app.css">
-            <script src="http://192.168.1.71:5173/resources/js/app.js"></script>
+            {{-- <link rel="stylesheet" href="http://192.168.1.71:5173/resources/css/app.css">
+            <script src="http://192.168.1.71:5173/resources/js/app.js"></script> --}}
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
